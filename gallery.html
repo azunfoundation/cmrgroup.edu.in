@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | CMR Group of Institutions – Hyderabad</title>
+  <link rel="icon" href="assets/images/favicon.ico" />
+  <meta name="description" content="Photo gallery of events, fests, cultural activities and campus life at CMR Group of Institutions — Carpediem, Scintillations, Azura, Efflorescence and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .gallery-filter { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px; }
+    .gf-btn { padding:9px 22px; border-radius:100px; border:1.5px solid var(--border); font-size:14px; font-weight:600; cursor:pointer; background:#fff; color:var(--text-muted); transition:var(--transition); }
+    .gf-btn.active, .gf-btn:hover { background:var(--blue); color:#fff; border-color:var(--blue); }
+    .gallery-events { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .gallery-event { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition); cursor:pointer; }
+    .gallery-event:hover { box-shadow:var(--shadow-lg); transform:translateY(-6px); }
+    .gallery-event-thumb { height:220px; display:flex; align-items:center; justify-content:center; font-size:64px; position:relative; overflow:hidden; }
+    .gallery-event-thumb img { transition: transform .4s ease; }
+    .gallery-event:hover .gallery-event-thumb img { transform: scale(1.07); }
+    .gallery-event-thumb::after { content:'View Photos'; position:absolute; inset:0; background:rgba(10,22,50,.72); display:flex; align-items:center; justify-content:center; color:#fff; font-size:15px; font-weight:700; letter-spacing:.5px; opacity:0; transition:var(--transition); }
+    .gallery-event:hover .gallery-event-thumb::after { opacity:1; }
+    .gallery-event-body { padding:20px; }
+    .gallery-event-college { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--blue); margin-bottom:6px; }
+    .gallery-event-name { font-size:18px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+    .gallery-event-year { font-size:13px; color:var(--text-muted); }
+    .video-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .video-card { background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition); }
+    .video-card:hover { box-shadow:var(--shadow-md); }
+    .video-thumb { height:200px; display:flex; align-items:center; justify-content:center; font-size:56px; background:linear-gradient(135deg,var(--navy),var(--blue-light)); position:relative; }
+    .play-btn { width:56px; height:56px; background:rgba(255,255,255,.2); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; border:2px solid rgba(255,255,255,.5); }
+    .video-body { padding:20px; }
+    .video-title { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .video-sub { font-size:13px; color:var(--text-muted); }
+    @media(max-width:900px){ .gallery-events{ grid-template-columns:repeat(2,1fr); } .video-grid{ grid-template-columns:1fr; } }
+    @media(max-width:600px){ .gallery-events{ grid-template-columns:1fr; } }
+
+    /* ===== LIGHTBOX MODAL ===== */
+    .lb-overlay { display:none; position:fixed; inset:0; background:rgba(5,10,24,.96); z-index:9999; overflow-y:auto; }
+    .lb-overlay.open { display:flex; flex-direction:column; }
+    .lb-header { display:flex; align-items:center; justify-content:space-between; padding:20px 32px; border-bottom:1px solid rgba(255,255,255,.1); flex-shrink:0; }
+    .lb-title { font-size:22px; font-weight:800; color:#fff; }
+    .lb-subtitle { font-size:13px; color:rgba(255,255,255,.55); margin-top:4px; }
+    .lb-close { width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.08); border:none; color:#fff; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.2s; flex-shrink:0; }
+    .lb-close:hover { background:rgba(255,255,255,.18); }
+    .lb-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:28px 32px; }
+    .lb-img-wrap { border-radius:10px; overflow:hidden; aspect-ratio:4/3; cursor:zoom-in; position:relative; background:#111; }
+    .lb-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform .35s ease, opacity .3s; }
+    .lb-img-wrap:hover img { transform:scale(1.06); }
+    .lb-img-wrap::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0); transition:.25s; }
+    .lb-img-wrap:hover::after { background:rgba(0,0,0,.25); }
+
+    /* ===== FULLSCREEN VIEWER ===== */
+    .fs-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.96); z-index:10000; align-items:center; justify-content:center; }
+    .fs-overlay.open { display:flex; }
+    .fs-img { max-width:90vw; max-height:88vh; border-radius:10px; object-fit:contain; display:block; }
+    .fs-close { position:absolute; top:18px; right:24px; font-size:32px; color:#fff; cursor:pointer; background:none; border:none; line-height:1; opacity:.8; }
+    .fs-close:hover { opacity:1; }
+    .fs-nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.1); border:none; color:#fff; width:52px; height:52px; border-radius:50%; font-size:24px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.2s; }
+    .fs-nav:hover { background:rgba(255,255,255,.25); }
+    .fs-prev { left:20px; }
+    .fs-next { right:20px; }
+    .fs-counter { position:absolute; bottom:24px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.6); font-size:13px; }
+    @media(max-width:700px){ .lb-grid{ grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+<header id="header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
+      <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="about.html#about-cmrgi">About CMRGI</a>
+          <a href="management.html">Management</a>
+          <a href="about.html#leadership">Principals &amp; Directors</a>
+          <a href="student-activities.html">Student Activities</a>
+          <a href="about.html#excellence">Center of Excellence</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
+          <a href="courses.html#cmrit">CMR Institute of Technology</a>
+          <a href="courses.html#cmrec">CMR Engineering College</a>
+          <a href="courses.html#cmrtc">CMR Technical Campus</a>
+          <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+          <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="admissions.html#procedure">Admission Procedure</a>
+          <a href="admissions.html#courses">Courses &amp; Intake</a>
+          <a href="admissions.html#fees">Fee Structure</a>
+          <a href="admissions.html#enquiry">Enquiry Form</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="placements.html#about-pc">About Placement Office</a>
+          <a href="placements.html#rankings">Rankings &amp; Highlights</a>
+          <a href="placements.html#training">Pre-Placement Training</a>
+          <a href="placements.html#companies">Top Companies</a>
+          <a href="placements.html#placed">Placement Records</a>
+          <a href="placements.html#graph">Placement Graph</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="infrastructure.html">Infrastructure Overview</a>
+          <a href="hostel.html">Hostel</a>
+          <a href="transport.html">Transport Facility</a>
+          <a href="other-facilities.html">Other Facilities</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="research.html">Research &amp; Development</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="alumni.html">Alumni</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <p class="m-section-title">Navigation</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About CMRGI</a>
+  <a href="management.html">Management</a>
+  <a href="student-activities.html">Student Activities</a>
+  <p class="m-section-title">Our Colleges</p>
+  <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
+  <a href="courses.html#cmrit">CMR Institute of Technology</a>
+  <a href="courses.html#cmrec">CMR Engineering College</a>
+  <a href="courses.html#cmrtc">CMR Technical Campus</a>
+  <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+  <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+  <p class="m-section-title">Admissions</p>
+  <a href="admissions.html#procedure">Admission Procedure</a>
+  <a href="admissions.html#courses">Courses &amp; Intake</a>
+  <a href="admissions.html#fees">Fee Structure</a>
+  <p class="m-section-title">Placements</p>
+  <a href="placements.html">Placement Cell</a>
+  <a href="placements.html#companies">Top Companies</a>
+  <a href="placements.html#placed">Placement Records</a>
+  <p class="m-section-title">Infrastructure</p>
+  <a href="infrastructure.html">Infrastructure Overview</a>
+  <a href="hostel.html">Hostel</a>
+  <a href="transport.html">Transport Facility</a>
+  <a href="other-facilities.html">Other Facilities</a>
+  <p class="m-section-title">More Pages</p>
+  <a href="research.html">Research &amp; Development</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="alumni.html">Alumni</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
+</nav>
+
+<section class="page-hero">
+  <p class="page-hero-label">Campus Life</p>
+  <h1 class="page-hero-title">Gallery</h1>
+  <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span><span style="color:#fff;">Gallery</span></nav>
+</section>
+
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Moments &amp; Memories</p>
+      <h2 class="section-title">Events &amp; <span>Fests</span></h2>
+      <p class="section-desc">Our vibrant campuses host numerous cultural, technical, and sports events every year. Here are some highlights from our recent events.</p>
+    </div>
+    <div class="gallery-filter fade-up">
+      <button class="gf-btn active">All Events</button>
+      <button class="gf-btn">CMRCET</button>
+      <button class="gf-btn">CMRIT</button>
+      <button class="gf-btn">CMRTC</button>
+      <button class="gf-btn">CMREC</button>
+      <button class="gf-btn">Cultural</button>
+      <button class="gf-btn">Technical</button>
+    </div>
+    <div class="gallery-events">
+      <div class="gallery-event fade-up" data-event="carpediem" data-category="cmrcet cultural technical">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation1.jpg" alt="Carpediem 2K23" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">CMRCET</div>
+          <div class="gallery-event-name">Carpediem 2K23</div>
+          <div class="gallery-event-year">Annual Cultural &amp; Technical Fest • 2023</div>
+        </div>
+      </div>
+      <div class="gallery-event fade-up delay-1" data-event="scintillations" data-category="cmrit cultural">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation2.jpg" alt="Scintillations 2K22" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">CMRIT</div>
+          <div class="gallery-event-name">Scintillations 2K22</div>
+          <div class="gallery-event-year">Annual Cultural Fest • 2022</div>
+        </div>
+      </div>
+      <div class="gallery-event fade-up delay-2" data-event="azura" data-category="cmrcet technical">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation3.jpg" alt="Azura 2022" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">CMRCET</div>
+          <div class="gallery-event-name">Azura 2022</div>
+          <div class="gallery-event-year">Annual Technical Symposium • 2022</div>
+        </div>
+      </div>
+      <div class="gallery-event fade-up" data-event="efflorescence" data-category="cmrtc cultural">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation4.jpg" alt="Efflorescence 2K22" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">CMRTC</div>
+          <div class="gallery-event-name">Efflorescence 2K22</div>
+          <div class="gallery-event-year">Annual Cultural Fest • 2022</div>
+        </div>
+      </div>
+      <div class="gallery-event fade-up delay-1" data-event="illuminate" data-category="cmrit technical cultural">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation5.jpg" alt="Illuminate 2K22" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">CMRIT</div>
+          <div class="gallery-event-name">Illuminate 2K22</div>
+          <div class="gallery-event-year">Technical Cultural Fest • 2022</div>
+        </div>
+      </div>
+      <div class="gallery-event fade-up delay-2" data-event="sports" data-category="cmrcet cmrit cmrtc cmrec sports">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation6.jpg" alt="Sports Week" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">All Colleges</div>
+          <div class="gallery-event-name">Sports Week</div>
+          <div class="gallery-event-year">Annual Sports Competition • 2023</div>
+        </div>
+      </div>
+      <div class="gallery-event fade-up" data-event="convocation" data-category="cmrcet cmrit cmrtc cmrec convocation">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation7.jpg" alt="Convocation 2023" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">All Colleges</div>
+          <div class="gallery-event-name">Convocation 2023</div>
+          <div class="gallery-event-year">Annual Graduation Ceremony • 2023</div>
+        </div>
+      </div>
+      <div class="gallery-event fade-up delay-1" data-event="conclave" data-category="cmrcet technical">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation8.jpg" alt="Industry Conclave 2023" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">CMRCET</div>
+          <div class="gallery-event-name">Industry Conclave 2023</div>
+          <div class="gallery-event-year">Industry-Academia Summit • 2023</div>
+        </div>
+      </div>
+      <div class="gallery-event fade-up delay-2" data-event="research" data-category="cmrcet cmrit cmrtc cmrec technical">
+        <div class="gallery-event-thumb"><img src="assets/images/graduation9.jpg" alt="Research Innovation Day" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery-event-body">
+          <div class="gallery-event-college">All Colleges</div>
+          <div class="gallery-event-name">Research Innovation Day</div>
+          <div class="gallery-event-year">National Conference on Emerging Trends • 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Video Highlights</p>
+      <h2 class="section-title">Watch Our <span>Campus</span></h2>
+    </div>
+    <div class="video-grid">
+      <div class="video-card fade-up">
+        <div class="video-thumb" style="position:relative;"><img src="assets/images/campus-aerial.jpg" alt="Campus Tour" style="width:100%;height:100%;object-fit:cover;"><div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="24" height="24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        <div class="video-body">
+          <div class="video-title">CMR Group – Campus Tour</div>
+          <div class="video-sub">A complete walkthrough of our 70-acre campus, labs, hostels and more</div>
+          <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:var(--blue);">Watch on YouTube →</a>
+        </div>
+      </div>
+      <div class="video-card fade-up delay-1">
+        <div class="video-thumb" style="position:relative;"><img src="assets/images/videocover.jpg" alt="Placements Success" style="width:100%;height:100%;object-fit:cover;"><div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="24" height="24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        <div class="video-body">
+          <div class="video-title">Placement Success Stories</div>
+          <div class="video-sub">Hear from our placed students working at TCS, Infosys, Microsoft &amp; more</div>
+          <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:var(--blue);">Watch on YouTube →</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="fade-up">
+      <p style="font-size:15px;color:var(--text-muted);margin-bottom:16px;">Subscribe for more videos, event highlights, and campus news</p>
+      <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="btn-blue" style="background:#ff0000;border-color:#ff0000;"> Subscribe on YouTube</a>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
+          <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">ig</a>
+            <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">yt</a>
+            <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">X</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Our Colleges</h4>
+          <div class="footer-links">
+            <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
+            <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of Technology</a>
+            <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
+            <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
+            <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
+            <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="about.html">About CMRGI</a>
+            <a href="management.html">Management</a>
+            <a href="admissions.html">Admissions 2025-26</a>
+            <a href="admissions.html#fees">Fee Structure</a>
+            <a href="placements.html">Placement Cell</a>
+            <a href="infrastructure.html">Infrastructure</a>
+            <a href="research.html">Research &amp; Development</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="alumni.html">Alumni</a>
+            <a href="student-activities.html">Student Activities</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-links">
+            <a href="tel:+919100760559">+91 9100760559</a>
+            <a href="tel:+919100470559">+91 9100470559</a>
+            <a href="tel:+919247033441">+91 9247033441</a>
+            <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
+            <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="contact.html">Grievance Cell</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-top" aria-label="Back to top">↑</button>
+
+<!-- LIGHTBOX MODAL -->
+<div class="lb-overlay" id="lb-overlay" role="dialog" aria-modal="true" aria-label="Event photo gallery">
+  <div class="lb-header">
+    <div>
+      <div class="lb-title" id="lb-title"></div>
+      <div class="lb-subtitle" id="lb-subtitle"></div>
+    </div>
+    <button class="lb-close" id="lb-close" aria-label="Close gallery">&times;</button>
+  </div>
+  <div class="lb-grid" id="lb-grid"></div>
+</div>
+
+<!-- FULLSCREEN PHOTO VIEWER -->
+<div class="fs-overlay" id="fs-overlay" role="dialog" aria-modal="true" aria-label="Full-screen photo viewer">
+  <button class="fs-close" id="fs-close" aria-label="Close">&times;</button>
+  <button class="fs-nav fs-prev" id="fs-prev" aria-label="Previous photo">&#10094;</button>
+  <img src="" alt="" class="fs-img" id="fs-img" />
+  <button class="fs-nav fs-next" id="fs-next" aria-label="Next photo">&#10095;</button>
+  <div class="fs-counter" id="fs-counter"></div>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script>
+// ==================== Gallery Lightbox ====================
+const ALL_IMAGES = [
+  'assets/images/graduation1.jpg',
+  'assets/images/graduation2.jpg',
+  'assets/images/graduation3.jpg',
+  'assets/images/graduation4.jpg',
+  'assets/images/graduation5.jpg',
+  'assets/images/graduation6.jpg',
+  'assets/images/graduation7.jpg',
+  'assets/images/graduation8.jpg',
+  'assets/images/graduation9.jpg',
+  'assets/images/graduation10.jpg',
+  'assets/images/graduation19.jpg',
+  'assets/images/placements1.jpg',
+  'assets/images/placements2.jpg',
+  'assets/images/nss.jpg',
+  'assets/images/campus-aerial.jpg',
+  'assets/images/campus.png'
+];
+
+// Each event gets a curated set of photo indices from ALL_IMAGES
+const EVENT_DATA = {
+  carpediem:      { title: 'Carpediem 2K23', sub: 'Annual Cultural & Technical Fest • CMRCET • 2023', imgs: [0,1,2,3,11,12,13] },
+  scintillations: { title: 'Scintillations 2K22', sub: 'Annual Cultural Fest • CMRIT • 2022', imgs: [1,5,6,7,13,14,15] },
+  azura:          { title: 'Azura 2022', sub: 'Annual Technical Symposium • CMRCET • 2022', imgs: [2,3,4,10,11,14,15] },
+  efflorescence:  { title: 'Efflorescence 2K22', sub: 'Annual Cultural Fest • CMRTC • 2022', imgs: [3,4,5,8,9,10,13] },
+  illuminate:     { title: 'Illuminate 2K22', sub: 'Technical Cultural Fest • CMRIT • 2022', imgs: [4,5,6,7,8,9,12] },
+  sports:         { title: 'Sports Week', sub: 'Annual Sports Competition • All Colleges • 2023', imgs: [5,6,8,9,10,13,15] },
+  convocation:    { title: 'Convocation 2023', sub: 'Annual Graduation Ceremony • All Colleges • 2023', imgs: [0,1,2,3,6,7,10,11] },
+  conclave:       { title: 'Industry Conclave 2023', sub: 'Industry-Academia Summit • CMRCET • 2023', imgs: [7,8,9,11,12,14,15] },
+  research:       { title: 'Research Innovation Day', sub: 'National Conference on Emerging Trends • 2023', imgs: [8,9,10,11,13,14,15] }
+};
+
+const lbOverlay = document.getElementById('lb-overlay');
+const lbGrid    = document.getElementById('lb-grid');
+const lbTitle   = document.getElementById('lb-title');
+const lbSub     = document.getElementById('lb-subtitle');
+const lbClose   = document.getElementById('lb-close');
+const fsOverlay = document.getElementById('fs-overlay');
+const fsImg     = document.getElementById('fs-img');
+const fsPrev    = document.getElementById('fs-prev');
+const fsNext    = document.getElementById('fs-next');
+const fsCounter = document.getElementById('fs-counter');
+const fsClose   = document.getElementById('fs-close');
+
+let currentPhotos = [];
+let currentIndex  = 0;
+
+function openLightbox(eventKey) {
+  const data = EVENT_DATA[eventKey];
+  if (!data) return;
+  lbTitle.textContent = data.title;
+  lbSub.textContent   = data.sub;
+  currentPhotos = data.imgs.map(i => ALL_IMAGES[i]);
+  lbGrid.innerHTML = '';
+  currentPhotos.forEach((src, idx) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'lb-img-wrap';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = data.title + ' photo ' + (idx + 1);
+    img.loading = 'lazy';
+    wrap.appendChild(img);
+    wrap.addEventListener('click', () => openFullscreen(idx));
+    lbGrid.appendChild(wrap);
+  });
+  lbOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lbOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function openFullscreen(idx) {
+  currentIndex = idx;
+  updateFullscreen();
+  fsOverlay.classList.add('open');
+}
+
+function closeFullscreen() {
+  fsOverlay.classList.remove('open');
+}
+
+function updateFullscreen() {
+  fsImg.src = currentPhotos[currentIndex];
+  fsImg.alt = 'Photo ' + (currentIndex + 1);
+  fsCounter.textContent = (currentIndex + 1) + ' / ' + currentPhotos.length;
+}
+
+// Wire up event cards
+document.querySelectorAll('.gallery-event[data-event]').forEach(card => {
+  card.addEventListener('click', () => openLightbox(card.dataset.event));
+});
+
+lbClose.addEventListener('click', closeLightbox);
+lbOverlay.addEventListener('click', e => { if (e.target === lbOverlay) closeLightbox(); });
+fsClose.addEventListener('click', closeFullscreen);
+fsOverlay.addEventListener('click', e => { if (e.target === fsOverlay) closeFullscreen(); });
+
+fsPrev.addEventListener('click', e => { e.stopPropagation(); currentIndex = (currentIndex - 1 + currentPhotos.length) % currentPhotos.length; updateFullscreen(); });
+fsNext.addEventListener('click', e => { e.stopPropagation(); currentIndex = (currentIndex + 1) % currentPhotos.length; updateFullscreen(); });
+
+document.addEventListener('keydown', e => {
+  if (fsOverlay.classList.contains('open')) {
+    if (e.key === 'ArrowLeft')  { currentIndex = (currentIndex - 1 + currentPhotos.length) % currentPhotos.length; updateFullscreen(); }
+    if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % currentPhotos.length; updateFullscreen(); }
+    if (e.key === 'Escape')     closeFullscreen();
+  } else if (lbOverlay.classList.contains('open')) {
+    if (e.key === 'Escape') closeLightbox();
+  }
+});
+
+// Gallery filter functionality
+document.querySelectorAll('.gf-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active button state
+    document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Filter the events
+    const filter = btn.textContent.trim().toLowerCase();
+    
+    document.querySelectorAll('.gallery-event').forEach(card => {
+      const category = card.dataset.category || '';
+      if (filter === 'all events' || category.includes(filter)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

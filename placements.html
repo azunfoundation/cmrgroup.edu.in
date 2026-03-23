@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Placements | CMR Group of Institutions – Hyderabad</title>
+  <link rel="icon" href="assets/images/favicon.ico" />
+  <meta name="description" content="CMR Group Placement Cell — 2500+ placements in 2023-24, average package ₹6 LPA. Top companies: TCS, Wipro, Infosys, Capgemini, Microsoft & 200+ more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .company-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+    .company-chip { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px 16px; text-align:center; transition:var(--transition); }
+    .company-chip:hover { border-color:var(--blue); box-shadow:var(--shadow-sm); transform:translateY(-3px); }
+    .company-logo-wrap { height:48px; display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+    .company-logo-wrap img { max-height:44px; max-width:110px; width:auto; object-fit:contain; filter:grayscale(20%); transition:filter .2s; }
+    .company-chip:hover .company-logo-wrap img { filter:none; }
+    .company-name { font-size:13px; font-weight:700; color:var(--navy); }
+    .company-sector { font-size:11px; color:var(--text-muted); margin-top:2px; }
+    .placement-year-tabs { display:flex; gap:8px; margin-bottom:32px; flex-wrap:wrap; }
+    .tab-btn { padding:10px 24px; border-radius:100px; border:1.5px solid var(--border); font-size:14px; font-weight:600; color:var(--text-muted); cursor:pointer; transition:var(--transition); background:#fff; }
+    .tab-btn.active, .tab-btn:hover { background:var(--blue); color:#fff; border-color:var(--blue); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+    .placement-table-wrap { background:#fff; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-sm); }
+    .placement-table-wrap table { width:100%; border-collapse:collapse; }
+    .placement-table-wrap th { background:var(--navy); color:#fff; padding:14px 20px; font-size:13px; font-weight:700; text-align:left; }
+    .placement-table-wrap td { padding:12px 20px; font-size:13.5px; border-bottom:1px solid var(--border); }
+    .placement-table-wrap tr:last-child td { border-bottom:none; }
+    .placement-table-wrap tr:nth-child(even) td { background:var(--bg-soft); }
+    .graph-bar-wrap { display:flex; flex-direction:column; gap:20px; }
+    .graph-bar-item { display:flex; align-items:center; gap:16px; }
+    .graph-year { font-size:14px; font-weight:700; color:var(--navy); width:72px; flex-shrink:0; }
+    .graph-bar-bg { flex:1; height:40px; background:var(--bg-soft); border-radius:8px; overflow:hidden; position:relative; }
+    .graph-bar-fill { height:100%; border-radius:8px; display:flex; align-items:center; padding-left:16px; font-size:13px; font-weight:700; color:#fff; transition:width 1s ease; }
+    .graph-count { font-size:14px; font-weight:700; color:var(--navy); width:80px; text-align:right; flex-shrink:0; }
+    .training-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .training-card { background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; transition:var(--transition); }
+    .training-card:hover { box-shadow:var(--shadow-md); background:#fff; }
+    @media(max-width:900px){ .company-grid{ grid-template-columns:repeat(3,1fr); } .training-grid{ grid-template-columns:1fr; } }
+    @media(max-width:600px){ .company-grid{ grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+<header id="header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
+      <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="about.html#about-cmrgi">About CMRGI</a>
+          <a href="management.html">Management</a>
+          <a href="about.html#leadership">Principals &amp; Directors</a>
+          <a href="student-activities.html">Student Activities</a>
+          <a href="about.html#excellence">Center of Excellence</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
+          <a href="courses.html#cmrit">CMR Institute of Technology</a>
+          <a href="courses.html#cmrec">CMR Engineering College</a>
+          <a href="courses.html#cmrtc">CMR Technical Campus</a>
+          <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+          <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="admissions.html#procedure">Admission Procedure</a>
+          <a href="admissions.html#courses">Courses &amp; Intake</a>
+          <a href="admissions.html#fees">Fee Structure</a>
+          <a href="admissions.html#enquiry">Enquiry Form</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="placements.html#about-pc">About Placement Office</a>
+          <a href="placements.html#rankings">Rankings &amp; Highlights</a>
+          <a href="placements.html#training">Pre-Placement Training</a>
+          <a href="placements.html#companies">Top Companies</a>
+          <a href="placements.html#placed">Placement Records</a>
+          <a href="placements.html#graph">Placement Graph</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="infrastructure.html">Infrastructure Overview</a>
+          <a href="hostel.html">Hostel</a>
+          <a href="transport.html">Transport Facility</a>
+          <a href="other-facilities.html">Other Facilities</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="research.html">Research &amp; Development</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="alumni.html">Alumni</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <p class="m-section-title">Navigation</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About CMRGI</a>
+  <a href="management.html">Management</a>
+  <a href="student-activities.html">Student Activities</a>
+  <p class="m-section-title">Our Colleges</p>
+  <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
+  <a href="courses.html#cmrit">CMR Institute of Technology</a>
+  <a href="courses.html#cmrec">CMR Engineering College</a>
+  <a href="courses.html#cmrtc">CMR Technical Campus</a>
+  <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+  <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+  <p class="m-section-title">Admissions</p>
+  <a href="admissions.html#procedure">Admission Procedure</a>
+  <a href="admissions.html#courses">Courses &amp; Intake</a>
+  <a href="admissions.html#fees">Fee Structure</a>
+  <p class="m-section-title">Placements</p>
+  <a href="placements.html">Placement Cell</a>
+  <a href="placements.html#companies">Top Companies</a>
+  <a href="placements.html#placed">Placement Records</a>
+  <p class="m-section-title">Infrastructure</p>
+  <a href="infrastructure.html">Infrastructure Overview</a>
+  <a href="hostel.html">Hostel</a>
+  <a href="transport.html">Transport Facility</a>
+  <a href="other-facilities.html">Other Facilities</a>
+  <p class="m-section-title">More Pages</p>
+  <a href="research.html">Research &amp; Development</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="alumni.html">Alumni</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
+</nav>
+
+<section class="page-hero">
+  <p class="page-hero-label">Career Success</p>
+  <h1 class="page-hero-title">Placement Cell</h1>
+  <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span><span style="color:#fff;">Placements</span></nav>
+</section>
+
+<!-- About Placement Cell -->
+<section id="about-pc" style="background:#fff;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;" class="about-grid">
+      <div class="fade-left">
+        <p class="section-label">Placement Office</p>
+        <h2 class="section-title">Think Placements, <span>Think CMR</span></h2>
+        <p style="font-size:16px;color:var(--text-muted);line-height:1.9;margin-bottom:20px;">A full-fledged Training &amp; Placement wing is established to cater to placements and higher education (in India &amp; Abroad) needs of outgoing students of CMRGI.</p>
+        <p style="font-size:15px;color:var(--text-muted);line-height:1.9;margin-bottom:20px;">The Placement Cell maintains active relationships with top IT, Core Engineering, Product, Services, MBA, and Pharma companies — providing a wide spectrum of opportunities to students across all disciplines.</p>
+        <p style="font-size:15px;color:var(--text-muted);line-height:1.9;margin-bottom:32px;">Pre-placement training including aptitude, communication, group discussions, and mock interviews ensures students are fully equipped for the competitive hiring process.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="admissions.html#enquiry" class="btn-blue">Apply Now →</a>
+          <a href="contact.html" class="btn-outline" style="border-color:var(--border);color:var(--navy);">Contact Placement Team</a>
+        </div>
+      </div>
+      <div class="fade-right">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:var(--radius-lg);padding:28px;text-align:center;color:#fff;">
+            <div style="font-size:40px;font-weight:900;margin-bottom:8px;">2500<span style="color:var(--gold-light);">+</span></div>
+            <div style="font-size:13px;opacity:.75;">Placements 2023-24</div>
+          </div>
+          <div style="background:linear-gradient(135deg,#064e3b,#059669);border-radius:var(--radius-lg);padding:28px;text-align:center;color:#fff;">
+            <div style="font-size:40px;font-weight:900;margin-bottom:8px;">₹6<span style="color:var(--gold-light);">+</span></div>
+            <div style="font-size:13px;opacity:.75;">Avg. Package LPA</div>
+          </div>
+          <div style="background:linear-gradient(135deg,#7c2d12,#dc2626);border-radius:var(--radius-lg);padding:28px;text-align:center;color:#fff;">
+            <div style="font-size:40px;font-weight:900;margin-bottom:8px;">200<span style="color:var(--gold-light);">+</span></div>
+            <div style="font-size:13px;opacity:.75;">Recruiting Companies</div>
+          </div>
+          <div style="background:linear-gradient(135deg,#1e1b4b,#7c3aed);border-radius:var(--radius-lg);padding:28px;text-align:center;color:#fff;">
+            <div style="font-size:40px;font-weight:900;margin-bottom:8px;">18K<span style="color:var(--gold-light);">+</span></div>
+            <div style="font-size:13px;opacity:.75;">Total Alumni Placed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rankings -->
+<section id="rankings" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">National Recognition</p>
+      <h2 class="section-title">Rankings &amp; <span>Highlights</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="rankings-grid">
+      <div class="ranking-card fade-up" style="background:#fff;border:1px solid var(--border);">
+        <div class="ranking-source" style="color:var(--blue);">NIRF – Ministry of Education</div>
+        <div class="ranking-value" style="color:var(--navy);">Band 201-250</div>
+        <div class="ranking-desc" style="color:var(--text-muted);">NIRF India Rankings 2022 – Engineering Category</div>
+      </div>
+      <div class="ranking-card fade-up delay-1" style="background:#fff;border:1px solid var(--border);">
+        <div class="ranking-source" style="color:var(--blue);">NIRF – Pharmacy</div>
+        <div class="ranking-value" style="color:var(--navy);">#72</div>
+        <div class="ranking-desc" style="color:var(--text-muted);">NIRF India Rankings 2022 – Pharmacy Category (All India)</div>
+      </div>
+      <div class="ranking-card fade-up delay-2" style="background:#fff;border:1px solid var(--border);">
+        <div class="ranking-source" style="color:var(--blue);">ARIIA</div>
+        <div class="ranking-value" style="color:var(--navy);">#5</div>
+        <div class="ranking-desc" style="color:var(--text-muted);">Atal Ranking – Excellent Band, Private Engineering Institutions</div>
+      </div>
+      <div class="ranking-card fade-up" style="background:#fff;border:1px solid var(--border);">
+        <div class="ranking-source" style="color:var(--blue);">The Week Magazine</div>
+        <div class="ranking-value" style="color:var(--navy);">#8</div>
+        <div class="ranking-desc" style="color:var(--text-muted);">Top All India Private Engineering Colleges</div>
+      </div>
+      <div class="ranking-card fade-up delay-1" style="background:#fff;border:1px solid var(--border);">
+        <div class="ranking-source" style="color:var(--blue);">Times of India</div>
+        <div class="ranking-value" style="color:var(--navy);">#2</div>
+        <div class="ranking-desc" style="color:var(--text-muted);">Private Engineering Institutes in Telangana</div>
+      </div>
+      <div class="ranking-card fade-up delay-2" style="background:#fff;border:1px solid var(--border);">
+        <div class="ranking-source" style="color:var(--blue);">Careers360</div>
+        <div class="ranking-value" style="color:var(--navy);">AAAA</div>
+        <div class="ranking-desc" style="color:var(--text-muted);">Rated AAAA among Top Engineering Colleges in India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Placement Graph -->
+<section id="graph" style="background:#fff;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Year-on-Year Growth</p>
+      <h2 class="section-title">Placement <span>Graph</span></h2>
+      <p class="section-desc">Consistently growing placement numbers — a testament to CMR's commitment to student career success.</p>
+    </div>
+    <div style="background:var(--bg-soft);border-radius:var(--radius-lg);padding:40px;border:1px solid var(--border);" class="fade-up">
+      <div class="graph-bar-wrap">
+        <div class="graph-bar-item"><div class="graph-year">2023-24</div><div class="graph-bar-bg"><div class="graph-bar-fill" style="width:100%;background:linear-gradient(90deg,var(--navy),var(--blue-light));">2500+ Students</div></div><div class="graph-count">2500+</div></div>
+        <div class="graph-bar-item"><div class="graph-year">2022-23</div><div class="graph-bar-bg"><div class="graph-bar-fill" style="width:88%;background:linear-gradient(90deg,#1e3a8a,#3b82f6);">2200+</div></div><div class="graph-count">2200+</div></div>
+        <div class="graph-bar-item"><div class="graph-year">2021-22</div><div class="graph-bar-bg"><div class="graph-bar-fill" style="width:76%;background:linear-gradient(90deg,#1e40af,#60a5fa);">1900+</div></div><div class="graph-count">1900+</div></div>
+        <div class="graph-bar-item"><div class="graph-year">2020-21</div><div class="graph-bar-bg"><div class="graph-bar-fill" style="width:64%;background:linear-gradient(90deg,#2563eb,#93c5fd);">1600+</div></div><div class="graph-count">1600+</div></div>
+        <div class="graph-bar-item"><div class="graph-year">2019-20</div><div class="graph-bar-bg"><div class="graph-bar-fill" style="width:52%;background:linear-gradient(90deg,#3b82f6,#bfdbfe);">1300+</div></div><div class="graph-count">1300+</div></div>
+        <div class="graph-bar-item"><div class="graph-year">2018-19</div><div class="graph-bar-bg"><div class="graph-bar-fill" style="width:44%;background:linear-gradient(90deg,#60a5fa,#dbeafe);">1100+</div></div><div class="graph-count">1100+</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pre-Placement Training -->
+<section id="training" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Skill Development</p>
+      <h2 class="section-title">Pre-Placement <span>Training</span></h2>
+      <p class="section-desc">Comprehensive training programme designed to make students industry-ready and confident in the campus recruitment process.</p>
+    </div>
+    <div class="training-grid">
+      <div class="training-card fade-up">
+        <div style="font-size:36px;margin-bottom:16px;color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Aptitude Training</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">Quantitative aptitude, logical reasoning, verbal ability — aligned with top company patterns including TCS iON, Infosys, Wipro.</p>
+      </div>
+      <div class="training-card fade-up delay-1">
+        <div style="font-size:36px;margin-bottom:16px;color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Communication Skills</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">English communication, presentation skills, group discussion, and technical interview preparation sessions with industry experts.</p>
+      </div>
+      <div class="training-card fade-up delay-2">
+        <div style="font-size:36px;margin-bottom:16px;color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Technical Skill Training</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">Domain-specific training in Java, Python, Data Structures, DBMS, Web Technologies — workshops by Capgemini, EPAM, Virtusa.</p>
+      </div>
+      <div class="training-card fade-up">
+        <div style="font-size:36px;margin-bottom:16px;color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Mock Interviews</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">HR and technical mock interview sessions with industry professionals, followed by detailed feedback and improvement plans.</p>
+      </div>
+      <div class="training-card fade-up delay-1">
+        <div style="font-size:36px;margin-bottom:16px;color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Resume Building</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">Professional resume and LinkedIn profile building workshops — helping students present their best selves to recruiters.</p>
+      </div>
+      <div class="training-card fade-up delay-2">
+        <div style="font-size:36px;margin-bottom:16px;color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;">Industry Interaction</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">Regular industry visits, guest lectures, webinars and internship opportunities with 200+ partner companies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Top Companies -->
+<section id="companies" style="background:#fff;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Our Recruiters</p>
+      <h2 class="section-title">Top Companies <span>Visited</span></h2>
+      <p class="section-desc">Leading organizations across IT, Core, Product, Services, MBA and Pharma sectors recruit from CMR    <div style="margin-bottom:28px;">
+      <h3 style="font-size:16px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">IT / ITES</h3>
+      <div class="company-grid">
+        <div class="company-chip fade-up"><div class="company-logo-wrap"><img src="assets/images/logos/tcs.svg" alt="TCS" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">TCS</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up delay-1"><div class="company-logo-wrap"><img src="assets/images/logos/infosys.png" alt="Infosys" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Infosys</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up delay-2"><div class="company-logo-wrap"><img src="assets/images/logos/wipro.png" alt="Wipro" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Wipro</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up delay-3"><div class="company-logo-wrap"><img src="assets/images/logos/capgemini.png" alt="Capgemini" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Capgemini</div><div class="company-sector">IT Consulting</div></div>
+        <div class="company-chip fade-up"><div class="company-logo-wrap"><img src="assets/images/logos/hcltech.svg" alt="HCL Tech" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">HCL Tech</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up delay-1"><div class="company-logo-wrap"><img src="assets/images/logos/techmahindra.png" alt="Tech Mahindra" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Tech Mahindra</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up delay-2"><div class="company-logo-wrap"><img src="assets/images/logos/cognizant.png" alt="Cognizant" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Cognizant</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up delay-3"><div class="company-logo-wrap"><img src="assets/images/logos/accenture.png" alt="Accenture" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Accenture</div><div class="company-sector">Consulting</div></div>
+        <div class="company-chip fade-up"><div class="company-logo-wrap"><img src="assets/images/logos/epam.png" alt="EPAM Systems" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">EPAM Systems</div><div class="company-sector">Product Engineering</div></div>
+        <div class="company-chip fade-up delay-1"><div class="company-logo-wrap"><img src="assets/images/logos/virtusa.png" alt="Virtusa" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Virtusa</div><div class="company-sector">IT Services</div></div>
+      </div>
+    </div>
+    <div style="margin-bottom:28px;">
+      <h3 style="font-size:16px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">Product / MNC</h3>
+      <div class="company-grid">
+        <div class="company-chip fade-up"><div class="company-logo-wrap"><img src="assets/images/logos/microsoft.png" alt="Microsoft" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Microsoft</div><div class="company-sector">Technology</div></div>
+        <div class="company-chip fade-up delay-1"><div class="company-logo-wrap"><img src="assets/images/logos/amazon.png" alt="Amazon AWS" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Amazon AWS</div><div class="company-sector">Cloud</div></div>
+        <div class="company-chip fade-up delay-2"><div class="company-logo-wrap"><img src="assets/images/logos/ibm.png" alt="IBM" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">IBM</div><div class="company-sector">Technology</div></div>
+        <div class="company-chip fade-up delay-3"><div class="company-logo-wrap"><img src="assets/images/logos/zensar.svg" alt="Zensar" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Zensar</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up"><div class="company-logo-wrap"><img src="assets/images/logos/mindtree.png" alt="Mindtree" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Mindtree</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up delay-1"><div class="company-logo-wrap"><img src="assets/images/logos/ust.png" alt="UST Global" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">UST Global</div><div class="company-sector">IT Services</div></div>
+        <div class="company-chip fade-up delay-2"><div class="company-logo-wrap"><img src="assets/images/logos/unisys.png" alt="Unisys" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Unisys</div><div class="company-sector">IT Solutions</div></div>
+        <div class="company-chip fade-up delay-3"><div class="company-logo-wrap"><img src="assets/images/logos/mphasis.png" alt="Mphasis" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Mphasis</div><div class="company-sector">IT &amp; BPO</div></div>
+        <div class="company-chip fade-up"><div class="company-logo-wrap"><img src="assets/images/logos/niit.svg" alt="NIIT" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">NIIT</div><div class="company-sector">Training</div></div>
+        <div class="company-chip fade-up delay-1"><div class="company-logo-wrap"><img src="assets/images/logos/persistent.png" alt="Persistent" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Persistent</div><div class="company-sector">Software</div></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:16px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">Core Engineering / Pharma / MBA</h3>
+      <div class="company-grid">
+        <div class="company-chip fade-up"><div class="company-logo-wrap"><img src="assets/images/logos/lnt.png" alt="L&amp;T" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">L&amp;T</div><div class="company-sector">Engineering</div></div>
+        <div class="company-chip fade-up delay-1"><div class="company-logo-wrap"><img src="assets/images/logos/bel.svg" alt="Bharat Electronics" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Bharat Electronics</div><div class="company-sector">Defense Electronics</div></div>
+        <div class="company-chip fade-up delay-2"><div class="company-logo-wrap"><img src="assets/images/logos/tatamotors.png" alt="TATA Motors" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">TATA Motors</div><div class="company-sector">Automotive</div></div>
+        <div class="company-chip fade-up delay-3"><div class="company-logo-wrap"><img src="assets/images/logos/sunpharma.png" alt="Sun Pharma" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Sun Pharma</div><div class="company-sector">Pharmaceutical</div></div>
+        <div class="company-chip fade-up"><div class="company-logo-wrap"><img src="assets/images/logos/drreddys.png" alt="Dr. Reddy's" onerror="this.src='assets/images/recruiter-placeholder.svg'"></div><div class="company-name">Dr. Reddy's</div><div class="company-sector">Pharmaceutical</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Placement Records -->
+<section id="placed" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Placement Records</p>
+      <h2 class="section-title">Year-wise <span>Placements</span></h2>
+    </div>
+    <div class="placement-year-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="y2024" data-group="placement" role="tab">2023-24</button>
+      <button class="tab-btn" data-tab="y2023" data-group="placement" role="tab">2022-23</button>
+      <button class="tab-btn" data-tab="y2022" data-group="placement" role="tab">2021-22</button>
+      <button class="tab-btn" data-tab="y2021" data-group="placement" role="tab">2020-21</button>
+      <button class="tab-btn" data-tab="y2020" data-group="placement" role="tab">2019-20</button>
+    </div>
+    <div id="y2024" class="tab-panel active" data-group="placement">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;">
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">2500+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Students Placed</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">₹6 LPA</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Average Package</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">200+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Companies Visited</div></div>
+      </div>
+      <div class="table-responsive" style="overflow-x:auto;">
+        <table class="placement-table" style="width:100%; border-collapse:collapse; min-width:800px; text-align:left;">
+          <thead>
+            <tr style="background:var(--navy); color:#fff;">
+              <th style="padding:12px; border:1px solid var(--border);">S.No</th>
+              <th style="padding:12px; border:1px solid var(--border);">Company Name</th>
+              <th style="padding:12px; border:1px solid var(--border);">Company Sector</th>
+              <th style="padding:12px; border:1px solid var(--border);">Company Type</th>
+              <th style="padding:12px; border:1px solid var(--border);">PPO Package (LPA)</th>
+              <th style="padding:12px; border:1px solid var(--border);">CMRCET</th>
+              <th style="padding:12px; border:1px solid var(--border);">CMRIT</th>
+              <th style="padding:12px; border:1px solid var(--border);">CMRTC</th>
+              <th style="padding:12px; border:1px solid var(--border);">CMREC</th>
+              <th style="padding:12px; border:1px solid var(--border);">CMRCP</th>
+              <th style="padding:12px; border:1px solid var(--border);">Total Selects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Paypal</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">34.50</td><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">2</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">2</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Siemens EDA</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">20.40</td><td style="padding:10px; border:1px solid var(--border);">10</td><td style="padding:10px; border:1px solid var(--border);">3</td><td style="padding:10px; border:1px solid var(--border);">4</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">17</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">3</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Zenoti</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">11.00</td><td style="padding:10px; border:1px solid var(--border);">4</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">4</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">4</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Autorabit</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">10.00</td><td style="padding:10px; border:1px solid var(--border);">2</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">3</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">5</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">GUVI</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">10.00</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">2</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">6</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Tejas Network</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Service</td><td style="padding:10px; border:1px solid var(--border);">10.00</td><td style="padding:10px; border:1px solid var(--border);">3</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">3</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">7</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">PalTech</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">10.00</td><td style="padding:10px; border:1px solid var(--border);">5</td><td style="padding:10px; border:1px solid var(--border);">2</td><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border);">3</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">11</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">8</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Veritas</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">9.90</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border);">0</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="y2023" class="tab-panel" data-group="placement">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;">
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">2200+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Students Placed 2022-23</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">₹5.5 LPA</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Average Package</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">180+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Recruiting Companies</div></div>
+      </div>
+      <div class="table-responsive" style="overflow-x:auto;">
+        <table class="placement-table" style="width:100%; border-collapse:collapse; min-width:800px; text-align:left;">
+          <thead>
+            <tr style="background:var(--navy); color:#fff;">
+              <th style="padding:12px; border:1px solid var(--border);">S.No</th>
+              <th style="padding:12px; border:1px solid var(--border);">Company Name</th>
+              <th style="padding:12px; border:1px solid var(--border);">Sector</th>
+              <th style="padding:12px; border:1px solid var(--border);">Type</th>
+              <th style="padding:12px; border:1px solid var(--border);">Stipend</th>
+              <th style="padding:12px; border:1px solid var(--border);">Package (LPA)</th>
+              <th style="padding:12px; border:1px solid var(--border);">Total Selects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Palo Alto</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">1.1 Lakh</td><td style="padding:10px; border:1px solid var(--border);">58.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">3</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">2</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Amazon SDE</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">80k</td><td style="padding:10px; border:1px solid var(--border);">44.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">3</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Adobe</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">1,00,000</td><td style="padding:10px; border:1px solid var(--border);">41.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">4</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Commvault</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">-</td><td style="padding:10px; border:1px solid var(--border);">31.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">5</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Mentor Graphics</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">30,000</td><td style="padding:10px; border:1px solid var(--border);">20.40</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">6</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">6</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">ZScaler</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">-</td><td style="padding:10px; border:1px solid var(--border);">19.50</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">5</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">7</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Informatica</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">-</td><td style="padding:10px; border:1px solid var(--border);">17.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">2</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">8</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Amadeus</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">-</td><td style="padding:10px; border:1px solid var(--border);">11.77</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">6</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">9</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">leadsquared</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">-</td><td style="padding:10px; border:1px solid var(--border);">11.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">9</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">10</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Siemens</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">30,000</td><td style="padding:10px; border:1px solid var(--border);">11.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">3</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="y2022" class="tab-panel" data-group="placement">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;">
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">1900+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Students Placed 2021-22</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">₹5.0 LPA</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Average Package</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">150+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Recruiting Companies</div></div>
+      </div>
+      <div class="table-responsive" style="overflow-x:auto;">
+        <table class="placement-table" style="width:100%; border-collapse:collapse; min-width:800px; text-align:left;">
+          <thead>
+            <tr style="background:var(--navy); color:#fff;">
+              <th style="padding:12px; border:1px solid var(--border);">S.No</th>
+              <th style="padding:12px; border:1px solid var(--border);">Company Name</th>
+              <th style="padding:12px; border:1px solid var(--border);">Sector</th>
+              <th style="padding:12px; border:1px solid var(--border);">Type</th>
+              <th style="padding:12px; border:1px solid var(--border);">Package (LPA)</th>
+              <th style="padding:12px; border:1px solid var(--border);">Total Selects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Mentor Graphics</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">20.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">13</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">2</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Planful</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">7.29</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">2</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">3</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Informatica</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">9.00 - 11.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">8</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">4</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Progress Software</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">8.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">4</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">5</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Oc tanner</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">8.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">6</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">6</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">ComakeIT</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">8.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">28</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">7</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Adobe</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">42.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">8</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Siemens</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Product</td><td style="padding:10px; border:1px solid var(--border);">11.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">9</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">Virtusa Codelite</td><td style="padding:10px; border:1px solid var(--border);">IT</td><td style="padding:10px; border:1px solid var(--border);">Service</td><td style="padding:10px; border:1px solid var(--border);">4.50 - 6.50</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">8</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="y2021" class="tab-panel" data-group="placement">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;">
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">1600+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Students Placed 2020-21</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">₹4.8 LPA</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Average Package</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">130+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Recruiting Companies</div></div>
+      </div>
+      <div class="table-responsive" style="overflow-x:auto;">
+        <table class="placement-table" style="width:100%; border-collapse:collapse; min-width:800px; text-align:left;">
+          <thead>
+            <tr style="background:var(--navy); color:#fff;">
+              <th style="padding:12px; border:1px solid var(--border);">S.No</th>
+              <th style="padding:12px; border:1px solid var(--border);">Company Name</th>
+              <th style="padding:12px; border:1px solid var(--border);">Stipend during Internship</th>
+              <th style="padding:12px; border:1px solid var(--border);">PPO Package (LPA)</th>
+              <th style="padding:12px; border:1px solid var(--border);">Total Selects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">AMAZON (AWS)</td><td style="padding:10px; border:1px solid var(--border);">Rs. 30,000/- per month</td><td style="padding:10px; border:1px solid var(--border);">28.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">6</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">2</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">AMAZON (SDE)</td><td style="padding:10px; border:1px solid var(--border);">Rs. 30,000/- per month</td><td style="padding:10px; border:1px solid var(--border);">26.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">3</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">MENTOR GRAPHICS</td><td style="padding:10px; border:1px solid var(--border);">Rs. 36,000/- per month</td><td style="padding:10px; border:1px solid var(--border);">16.25</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">14</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">4</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">SAP</td><td style="padding:10px; border:1px solid var(--border);">Rs. 25,000/- per month</td><td style="padding:10px; border:1px solid var(--border);">9.20</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">10</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">5</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">WILEY - MTHREE</td><td style="padding:10px; border:1px solid var(--border);">Rs. 20,000/- per month</td><td style="padding:10px; border:1px solid var(--border);">9.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">13</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">6</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">COMAKEIT</td><td style="padding:10px; border:1px solid var(--border);">Rs. 20,000/- per month</td><td style="padding:10px; border:1px solid var(--border);">8.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">10</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">7</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">OPEN TEXT</td><td style="padding:10px; border:1px solid var(--border);">Rs. 15,000/- per month</td><td style="padding:10px; border:1px solid var(--border);">7.25</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">11</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">8</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">HSBC</td><td style="padding:10px; border:1px solid var(--border);"> - </td><td style="padding:10px; border:1px solid var(--border);">7.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">3</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">9</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">PLANETSPARK</td><td style="padding:10px; border:1px solid var(--border);"> - </td><td style="padding:10px; border:1px solid var(--border);">7.00</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">4</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="y2020" class="tab-panel" data-group="placement">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;">
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">1300+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Students Placed 2019-20</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">₹4.5 LPA</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Average Package</div></div>
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);"><div style="font-size:40px;font-weight:900;color:var(--blue);">100+</div><div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Recruiting Companies</div></div>
+      </div>
+      <div class="table-responsive" style="overflow-x:auto;">
+         <table class="placement-table" style="width:100%; border-collapse:collapse; min-width:800px; text-align:left;">
+          <thead>
+            <tr style="background:var(--navy); color:#fff;">
+              <th style="padding:12px; border:1px solid var(--border);">S.No</th>
+              <th style="padding:12px; border:1px solid var(--border);">Company Name</th>
+              <th style="padding:12px; border:1px solid var(--border);">PPO Package (LPA)</th>
+              <th style="padding:12px; border:1px solid var(--border);">Salary offered in Internship</th>
+              <th style="padding:12px; border:1px solid var(--border);">Total Selects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:10px; border:1px solid var(--border);">1</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">MENTOR GRAPHICS</td><td style="padding:10px; border:1px solid var(--border);">15.70</td><td style="padding:10px; border:1px solid var(--border);">Rs. 36,000/- per month</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">2</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">2</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">BNY MELLON</td><td style="padding:10px; border:1px solid var(--border);">15.00</td><td style="padding:10px; border:1px solid var(--border);">Rs. 60,000/- per month</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">3</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">ACTYV</td><td style="padding:10px; border:1px solid var(--border);">14.00</td><td style="padding:10px; border:1px solid var(--border);"> - </td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">5</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">4</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">SAP</td><td style="padding:10px; border:1px solid var(--border);">8.50</td><td style="padding:10px; border:1px solid var(--border);"> - </td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">6</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">5</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">KONY LABS</td><td style="padding:10px; border:1px solid var(--border);">8.00</td><td style="padding:10px; border:1px solid var(--border);">Rs. 25,000/- per Month</td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">4</td></tr>
+            <tr style="background:var(--bg-soft);"><td style="padding:10px; border:1px solid var(--border);">6</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">COMAKEIT</td><td style="padding:10px; border:1px solid var(--border);">8.00</td><td style="padding:10px; border:1px solid var(--border);"> - </td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">25</td></tr>
+            <tr><td style="padding:10px; border:1px solid var(--border);">7</td><td style="padding:10px; border:1px solid var(--border); font-weight:600;">POLYCOM</td><td style="padding:10px; border:1px solid var(--border);">8.00</td><td style="padding:10px; border:1px solid var(--border);"> - </td><td style="padding:10px; border:1px solid var(--border); font-weight:700;">1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
+          <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">ig</a>
+            <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">yt</a>
+            <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">X</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Our Colleges</h4>
+          <div class="footer-links">
+            <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
+            <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of Technology</a>
+            <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
+            <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
+            <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
+            <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="about.html">About CMRGI</a>
+            <a href="management.html">Management</a>
+            <a href="admissions.html">Admissions 2025-26</a>
+            <a href="admissions.html#fees">Fee Structure</a>
+            <a href="placements.html">Placement Cell</a>
+            <a href="infrastructure.html">Infrastructure</a>
+            <a href="research.html">Research &amp; Development</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="alumni.html">Alumni</a>
+            <a href="student-activities.html">Student Activities</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-links">
+            <a href="tel:+919100760559">+91 9100760559</a>
+            <a href="tel:+919100470559">+91 9100470559</a>
+            <a href="tel:+919247033441">+91 9247033441</a>
+            <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
+            <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="contact.html">Grievance Cell</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-top" aria-label="Back to top">↑</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

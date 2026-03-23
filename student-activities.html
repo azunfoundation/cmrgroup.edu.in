@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Activities | CMR Group of Institutions</title>
+  <link rel="icon" href="assets/images/favicon.ico" />
+  <meta name="description" content="CMR Group student activities — SRADDHA, NSS, Clubs, Cultural fests, Technical symposiums, Sports, MoUs, International study tours and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .activity-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .activity-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; transition:var(--transition); position:relative; overflow:hidden; }
+    .activity-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+    .activity-card.blue::before { background:linear-gradient(90deg,var(--navy),var(--blue)); }
+    .activity-card.green::before { background:linear-gradient(90deg,#064e3b,#059669); }
+    .activity-card.gold::before { background:linear-gradient(90deg,#92700a,var(--gold)); }
+    .activity-card.purple::before { background:linear-gradient(90deg,#1e1b4b,#7c3aed); }
+    .activity-card.red::before { background:linear-gradient(90deg,#7c2d12,#dc2626); }
+    .activity-card.teal::before { background:linear-gradient(90deg,#0f2a5e,#0284c7); }
+    .activity-card:hover { box-shadow:var(--shadow-md); transform:translateY(-4px); }
+    .activity-icon { font-size:36px; margin-bottom:14px; }
+    .activity-name { font-size:17px; font-weight:800; color:var(--navy); margin-bottom:8px; }
+    .activity-desc { font-size:13px; color:var(--text-muted); line-height:1.7; }
+    .clubs-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .club-chip { background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; text-align:center; transition:var(--transition); }
+    .club-chip:hover { background:var(--navy); color:#fff; }
+    .club-chip .ci { font-size:24px; display:block; margin-bottom:6px; }
+    .club-chip .cn { font-size:13px; font-weight:700; color:var(--navy); transition:var(--transition); }
+    .club-chip:hover .cn { color:#fff; }
+    @media(max-width:900px){ .activity-grid{ grid-template-columns:repeat(2,1fr); } .clubs-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:600px){ .activity-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<header id="header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
+      <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="about.html#about-cmrgi">About CMRGI</a>
+          <a href="management.html">Management</a>
+          <a href="about.html#leadership">Principals &amp; Directors</a>
+          <a href="student-activities.html">Student Activities</a>
+          <a href="about.html#excellence">Center of Excellence</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
+          <a href="courses.html#cmrit">CMR Institute of Technology</a>
+          <a href="courses.html#cmrec">CMR Engineering College</a>
+          <a href="courses.html#cmrtc">CMR Technical Campus</a>
+          <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+          <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="admissions.html#procedure">Admission Procedure</a>
+          <a href="admissions.html#courses">Courses &amp; Intake</a>
+          <a href="admissions.html#fees">Fee Structure</a>
+          <a href="admissions.html#enquiry">Enquiry Form</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="placements.html#about-pc">About Placement Office</a>
+          <a href="placements.html#rankings">Rankings &amp; Highlights</a>
+          <a href="placements.html#training">Pre-Placement Training</a>
+          <a href="placements.html#companies">Top Companies</a>
+          <a href="placements.html#placed">Placement Records</a>
+          <a href="placements.html#graph">Placement Graph</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="infrastructure.html">Infrastructure Overview</a>
+          <a href="hostel.html">Hostel</a>
+          <a href="transport.html">Transport Facility</a>
+          <a href="other-facilities.html">Other Facilities</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="research.html">Research &amp; Development</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="alumni.html">Alumni</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <p class="m-section-title">Navigation</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About CMRGI</a>
+  <a href="management.html">Management</a>
+  <a href="student-activities.html">Student Activities</a>
+  <p class="m-section-title">Our Colleges</p>
+  <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
+  <a href="courses.html#cmrit">CMR Institute of Technology</a>
+  <a href="courses.html#cmrec">CMR Engineering College</a>
+  <a href="courses.html#cmrtc">CMR Technical Campus</a>
+  <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+  <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+  <p class="m-section-title">Admissions</p>
+  <a href="admissions.html#procedure">Admission Procedure</a>
+  <a href="admissions.html#courses">Courses &amp; Intake</a>
+  <a href="admissions.html#fees">Fee Structure</a>
+  <p class="m-section-title">Placements</p>
+  <a href="placements.html">Placement Cell</a>
+  <a href="placements.html#companies">Top Companies</a>
+  <a href="placements.html#placed">Placement Records</a>
+  <p class="m-section-title">Infrastructure</p>
+  <a href="infrastructure.html">Infrastructure Overview</a>
+  <a href="hostel.html">Hostel</a>
+  <a href="transport.html">Transport Facility</a>
+  <a href="other-facilities.html">Other Facilities</a>
+  <p class="m-section-title">More Pages</p>
+  <a href="research.html">Research &amp; Development</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="alumni.html">Alumni</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
+</nav>
+
+<section class="page-hero">
+  <p class="page-hero-label">Campus Life</p>
+  <h1 class="page-hero-title">Student Activities</h1>
+  <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="about.html">About Us</a><span>›</span><span style="color:#fff;">Student Activities</span></nav>
+</section>
+
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Beyond the Classroom</p>
+      <h2 class="section-title">Life at <span>CMR Group</span></h2>
+      <p class="section-desc">We believe in the holistic development of every student — combining academic excellence with leadership, creativity, and community service.</p>
+    </div>
+    <div class="activity-grid">
+      <div class="activity-card blue fade-up">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="activity-name">SRADDHA – Grievance Cell</div>
+        <div class="activity-desc">A student's Grievance Redressal Cell ensuring transparency in Teaching-Learning processes. Provides a formal mechanism for students to report unfair practices with complete confidentiality and fairness.</div>
+      </div>
+      <div class="activity-card green fade-up delay-1">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="activity-name">NSS – National Service Scheme</div>
+        <div class="activity-desc">Active NSS units across CMRGI colleges conducting blood donation drives, tree plantation campaigns, health awareness initiatives, and community upliftment activities throughout the year.</div>
+      </div>
+      <div class="activity-card gold fade-up delay-2">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <div class="activity-name">Cultural Fests &amp; Events</div>
+        <div class="activity-desc">Annual college fests — Carpediem (CMRCET), Scintillations (CMRIT), Efflorescence (CMRTC), Illuminate (CMRIT) — featuring music, dance, drama, art and literary competitions.</div>
+      </div>
+      <div class="activity-card purple fade-up">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div>
+        <div class="activity-name">Technical Symposiums</div>
+        <div class="activity-desc">Inter-college and national-level technical events, paper presentations, hackathons, quiz competitions, and project expos conducted annually to foster innovation and technical skills.</div>
+      </div>
+      <div class="activity-card red fade-up delay-1">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+        <div class="activity-name">Sports &amp; Games</div>
+        <div class="activity-desc">A well-equipped sports complex supporting cricket, football, badminton, table tennis, volleyball, basketball and more. Annual sports week with inter-college competitions and championships.</div>
+      </div>
+      <div class="activity-card teal fade-up delay-2">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg></div>
+        <div class="activity-name">International Study Tours</div>
+        <div class="activity-desc">Annual international educational tours to countries like Singapore, Malaysia, Dubai, UK, and more — exposing students to global industries, research labs, and cultural experiences.</div>
+      </div>
+      <div class="activity-card blue fade-up">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div class="activity-name">Industry Internships</div>
+        <div class="activity-desc">Mandatory internship programmes with 200+ industry partners. Students spend 4-8 weeks in real work environments, gaining practical exposure to engineering, management, and pharma sectors.</div>
+      </div>
+      <div class="activity-card green fade-up delay-1">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div>
+        <div class="activity-name">Student Entrepreneurs</div>
+        <div class="activity-desc">CMR's MSME Incubation Centre supports student startups with mentorship, seed funding, legal support, and workspace. 20+ student-led startups launched since 2015.</div>
+      </div>
+      <div class="activity-card gold fade-up delay-2">
+        <div class="activity-icon" style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="activity-name">Academic Clubs &amp; Chapters</div>
+        <div class="activity-desc">IEEE Student Branches, CSI Chapters, IETE Chapters, ACM Student Chapters and domain clubs such as AI Club, Robotics Club, Pharma Club and more across all CMRGI campuses.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Professional Bodies</p>
+      <h2 class="section-title">Student <span>Clubs &amp; Chapters</span></h2>
+    </div>
+    <div class="clubs-grid">
+      <div class="club-chip fade-up"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="cn">IEEE Student Branch</span></div>
+      <div class="club-chip fade-up delay-1"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><span class="cn">CSI Chapter</span></div>
+      <div class="club-chip fade-up delay-2"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg></span><span class="cn">IETE Chapter</span></div>
+      <div class="club-chip fade-up delay-3"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M4 17l6-6-6-6M12 19h8"/></svg></span><span class="cn">ACM Student Chapter</span></div>
+      <div class="club-chip fade-up"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 16h.01M16 16h.01"/></svg></span><span class="cn">Robotics Club</span></div>
+      <div class="club-chip fade-up delay-1"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="3"/><circle cx="19" cy="6" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="9" x2="6" y2="7"/><line x1="12" y1="9" x2="18" y2="7"/><line x1="12" y1="15" x2="6" y2="17"/><line x1="12" y1="15" x2="18" y2="17"/></svg></span><span class="cn">AI &amp; ML Club</span></div>
+      <div class="club-chip fade-up delay-2"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/></svg></span><span class="cn">Data Science Club</span></div>
+      <div class="club-chip fade-up delay-3"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="cn">Cyber Security Club</span></div>
+      <div class="club-chip fade-up"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.34-1.604-.216-.605-.09-1.28.324-1.782.413-.502 1.05-.79 1.7-1.14 1.402-.756 2.636-2.094 3.196-3.812C19.7 13.5 20 12.8 20 12c0-5.5-3.6-10-8-10z"/></svg></span><span class="cn">Cultural Arts Club</span></div>
+      <div class="club-chip fade-up delay-1"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span><span class="cn">Photography Club</span></div>
+      <div class="club-chip fade-up delay-2"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span><span class="cn">Pharma Students Association</span></div>
+      <div class="club-chip fade-up delay-3"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span><span class="cn">Eco &amp; Sustainability Club</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:linear-gradient(135deg,var(--navy),var(--blue-light));padding:80px 24px;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="cta-grid">
+      <div class="fade-left">
+        <p style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;">Join Our Community</p>
+        <h2 style="font-size:clamp(28px,4vw,40px);font-weight:900;color:#fff;line-height:1.2;margin-top:12px 0 20px;">Be Part of CMR's Vibrant Student Community</h2>
+        <p style="font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:32px;">Experience an all-rounded education — academics, sports, arts, entrepreneurship, research, and global exposure — all at one campus.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="admissions.html#enquiry" class="btn-gold">Apply for Admissions →</a>
+          <a href="contact.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;padding:14px 28px;border-radius:100px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.2);transition:var(--transition);">Contact Us</a>
+        </div>
+      </div>
+      <div class="fade-right" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:24px;text-align:center;"><div style="font-size:32px;font-weight:900;color:#fff;">15K+</div><div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">Students</div></div>
+        <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:24px;text-align:center;"><div style="font-size:32px;font-weight:900;color:#fff;">100+</div><div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">Clubs &amp; Chapters</div></div>
+        <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:24px;text-align:center;"><div style="font-size:32px;font-weight:900;color:#fff;">50+</div><div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">Annual Events</div></div>
+        <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:24px;text-align:center;"><div style="font-size:32px;font-weight:900;color:#fff;">10+</div><div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">Countries Visited</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
+          <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">ig</a>
+            <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">yt</a>
+            <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">X</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Our Colleges</h4>
+          <div class="footer-links">
+            <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
+            <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of Technology</a>
+            <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
+            <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
+            <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
+            <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="about.html">About CMRGI</a>
+            <a href="management.html">Management</a>
+            <a href="admissions.html">Admissions 2025-26</a>
+            <a href="admissions.html#fees">Fee Structure</a>
+            <a href="placements.html">Placement Cell</a>
+            <a href="infrastructure.html">Infrastructure</a>
+            <a href="research.html">Research &amp; Development</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="alumni.html">Alumni</a>
+            <a href="student-activities.html">Student Activities</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-links">
+            <a href="tel:+919100760559">+91 9100760559</a>
+            <a href="tel:+919100470559">+91 9100470559</a>
+            <a href="tel:+919247033441">+91 9247033441</a>
+            <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
+            <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="contact.html">Grievance Cell</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-top" aria-label="Back to top">↑</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

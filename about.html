@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About CMRGI | CMR Group of Institutions – Hyderabad</title>
+  <link rel="icon" href="assets/images/favicon.ico" />
+  <meta name="description" content="Learn about CMR Group of Institutions – established under MGR Educational Society, featuring world-class faculty, NAAC accreditation, and top national rankings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .timeline { display:flex; flex-direction:column; gap:0; }
+    .tl-item { display:flex; gap:32px; padding-bottom:40px; position:relative; }
+    .tl-item:last-child { padding-bottom:0; }
+    .tl-left { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:56px; }
+    .tl-dot { width:20px; height:20px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--blue-light)); box-shadow:0 0 0 4px rgba(26,77,179,.15); flex-shrink:0; }
+    .tl-line { flex:1; width:2px; background:linear-gradient(to bottom, var(--border), transparent); margin:4px 0; }
+    .tl-item:last-child .tl-line { display:none; }
+    .tl-year { font-size:13px; font-weight:800; color:var(--blue); margin-top:4px; text-align:center; }
+    .tl-content { padding-top:0; }
+    .tl-title { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .tl-desc { font-size:14px; color:var(--text-muted); line-height:1.7; }
+    .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .value-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:32px; text-align:center; transition:var(--transition); }
+    .value-card:hover { box-shadow:var(--shadow-md); transform:translateY(-4px); }
+    .value-icon { font-size:40px; margin-bottom:16px; }
+    .value-title { font-size:18px; font-weight:700; color:var(--navy); margin-bottom:10px; }
+    .value-desc { font-size:14px; color:var(--text-muted); line-height:1.7; }
+    .leadership-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .leader-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition); text-align:center; }
+    .leader-card:hover { box-shadow:var(--shadow-md); transform:translateY(-4px); }
+    .leader-avatar { height:260px; display:flex; align-items:center; justify-content:center; font-size:64px; background:#f8fafc; overflow:hidden;}
+    .leader-avatar.av1 { background:linear-gradient(135deg,#0a1628,#1a4db3); }
+    .leader-avatar.av2 { background:linear-gradient(135deg,#064e3b,#059669); }
+    .leader-avatar.av3 { background:linear-gradient(135deg,#3b0764,#7c3aed); }
+    .leader-info { padding:24px; }
+    .leader-name { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+    .leader-role { font-size:13px; color:var(--blue); font-weight:600; margin-bottom:8px; }
+    .leader-college { font-size:12px; color:var(--text-muted); }
+    .mou-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .mou-chip { background:#fff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; text-align:center; transition:var(--transition); }
+    .mou-chip:hover { border-color:var(--blue); box-shadow:var(--shadow-sm); }
+    .mou-name { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+    .mou-type { font-size:11px; color:var(--text-muted); }
+    @media(max-width:768px){
+      .values-grid,.leadership-grid{ grid-template-columns:1fr; }
+      .mou-grid{ grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
+      <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="about.html#about-cmrgi">About CMRGI</a>
+          <a href="management.html">Management</a>
+          <a href="about.html#leadership">Principals &amp; Directors</a>
+          <a href="student-activities.html">Student Activities</a>
+          <a href="about.html#excellence">Center of Excellence</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
+          <a href="courses.html#cmrit">CMR Institute of Technology</a>
+          <a href="courses.html#cmrec">CMR Engineering College</a>
+          <a href="courses.html#cmrtc">CMR Technical Campus</a>
+          <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+          <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="admissions.html#procedure">Admission Procedure</a>
+          <a href="admissions.html#courses">Courses &amp; Intake</a>
+          <a href="admissions.html#fees">Fee Structure</a>
+          <a href="admissions.html#enquiry">Enquiry Form</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="placements.html#about-pc">About Placement Office</a>
+          <a href="placements.html#rankings">Rankings &amp; Highlights</a>
+          <a href="placements.html#training">Pre-Placement Training</a>
+          <a href="placements.html#companies">Top Companies</a>
+          <a href="placements.html#placed">Placement Records</a>
+          <a href="placements.html#graph">Placement Graph</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="infrastructure.html">Infrastructure Overview</a>
+          <a href="hostel.html">Hostel</a>
+          <a href="transport.html">Transport Facility</a>
+          <a href="other-facilities.html">Other Facilities</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="research.html">Research &amp; Development</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="alumni.html">Alumni</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <p class="m-section-title">Navigation</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About CMRGI</a>
+  <a href="management.html">Management</a>
+  <a href="student-activities.html">Student Activities</a>
+  <p class="m-section-title">Our Colleges</p>
+  <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
+  <a href="courses.html#cmrit">CMR Institute of Technology</a>
+  <a href="courses.html#cmrec">CMR Engineering College</a>
+  <a href="courses.html#cmrtc">CMR Technical Campus</a>
+  <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+  <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+  <p class="m-section-title">Admissions</p>
+  <a href="admissions.html#procedure">Admission Procedure</a>
+  <a href="admissions.html#courses">Courses &amp; Intake</a>
+  <a href="admissions.html#fees">Fee Structure</a>
+  <p class="m-section-title">Placements</p>
+  <a href="placements.html">Placement Cell</a>
+  <a href="placements.html#companies">Top Companies</a>
+  <a href="placements.html#placed">Placement Records</a>
+  <p class="m-section-title">Infrastructure</p>
+  <a href="infrastructure.html">Infrastructure Overview</a>
+  <a href="hostel.html">Hostel</a>
+  <a href="transport.html">Transport Facility</a>
+  <a href="other-facilities.html">Other Facilities</a>
+  <p class="m-section-title">More Pages</p>
+  <a href="research.html">Research &amp; Development</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="alumni.html">Alumni</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <p class="page-hero-label">Our Story</p>
+  <h1 class="page-hero-title">About CMR Group of Institutions</h1>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <span style="color:#fff;">About Us</span>
+  </nav>
+</section>
+
+<!-- ABOUT CMRGI -->
+<section id="about-cmrgi" style="background:#fff;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;" class="about-grid">
+      <div class="fade-left">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-title">Committed to <span>Academic Excellence</span></h2>
+        <p style="font-size:16px;color:var(--text-muted);line-height:1.9;margin-bottom:20px;">
+          CMR Group of Institutions is one of India's premier educational groups, dedicated to imparting quality education and promoting excellence in academic pursuits in the fields of Science, Pharmacy, Engineering, Technology, and Management.
+        </p>
+        <p style="font-size:15px;color:var(--text-muted);line-height:1.9;margin-bottom:20px;">
+          Established under the aegis of the <strong style="color:var(--navy);">MGR Educational Society</strong>, the group is headquartered at Kandlakoya, Medchal Road, Hyderabad — one of India's most dynamic educational hubs.
+        </p>
+        <p style="font-size:15px;color:var(--text-muted);line-height:1.9;margin-bottom:32px;">
+          With six specialized colleges under one umbrella, CMR Group nurtures over 15,000 students annually, guided by 1,000+ expert faculty members. We are consistently recognized among the <strong style="color:var(--navy);">Top 10 Colleges in Telangana.</strong>
+        </p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="admissions.html" class="btn-blue">Apply for Admission →</a>
+          <a href="contact.html" class="btn-outline" style="border-color:var(--border);color:var(--navy);">Get in Touch</a>
+        </div>
+      </div>
+      <div class="fade-right">
+        <div style="background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:var(--radius-lg);padding:40px;color:#fff;">
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:28px;color:var(--gold-light);">CMRGI At a Glance</h3>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(255,255,255,.08);border-radius:12px;border:1px solid rgba(255,255,255,.1);">
+              <span style="display:flex;align-items:center;justify-content:center;color:var(--orange-light);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <div><div style="font-size:24px;font-weight:900;">15,000+</div><div style="font-size:13px;opacity:.65;">Students across 6 Colleges</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(255,255,255,.08);border-radius:12px;border:1px solid rgba(255,255,255,.1);">
+              <span style="display:flex;align-items:center;justify-content:center;color:var(--orange-light);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </span>
+              <div><div style="font-size:24px;font-weight:900;">1,000+</div><div style="font-size:13px;opacity:.65;">Expert Faculty Members</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(255,255,255,.08);border-radius:12px;border:1px solid rgba(255,255,255,.1);">
+              <span style="display:flex;align-items:center;justify-content:center;color:var(--orange-light);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </span>
+              <div><div style="font-size:24px;font-weight:900;">2,500+</div><div style="font-size:13px;opacity:.65;">Placements in 2023-24</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:rgba(255,255,255,.08);border-radius:12px;border:1px solid rgba(255,255,255,.1);">
+              <span style="display:flex;align-items:center;justify-content:center;color:var(--orange-light);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </span>
+              <div><div style="font-size:24px;font-weight:900;">50+</div><div style="font-size:13px;opacity:.65;">Industry MOU Partners</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Our Foundation</p>
+      <h2 class="section-title">Our Core <span>Values</span></h2>
+      <p class="section-desc">The principles that guide every decision, curriculum, and initiative at CMR Group of Institutions.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-up">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="40" height="40"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h3 class="value-title">Excellence</h3>
+        <p class="value-desc">We pursue the highest standards in education, research, and student outcomes — consistently pushing boundaries of academic achievement.</p>
+      </div>
+      <div class="value-card fade-up delay-1">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" width="40" height="40"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+        <h3 class="value-title">Innovation</h3>
+        <p class="value-desc">Our DSIR-recognized R&D center and ARIIA #5 ranking reflect our commitment to fostering a culture of creativity and discovery.</p>
+      </div>
+      <div class="value-card fade-up delay-2">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="40" height="40"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3 class="value-title">Integrity</h3>
+        <p class="value-desc">We build trust through transparent governance, ethical practices, and accountability to our students, parents, and society.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" width="40" height="40"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <h3 class="value-title">Inclusivity</h3>
+        <p class="value-desc">We welcome students from all backgrounds, ensuring equal opportunity for every learner to discover and achieve their potential.</p>
+      </div>
+      <div class="value-card fade-up delay-1">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="40" height="40"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
+        <h3 class="value-title">Empowerment</h3>
+        <p class="value-desc">We equip students with not just knowledge, but the skills, confidence, and network needed to lead in the real world.</p>
+      </div>
+      <div class="value-card fade-up delay-2">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" width="40" height="40"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 class="value-title">Community</h3>
+        <p class="value-desc">Active social outreach, NSS activities, and community programs reflect our responsibility as an institution to give back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCREDITATIONS -->
+<section id="accreditations" style="background:#fff;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Approvals & Recognition</p>
+      <h2 class="section-title">Accreditations &amp; <span>Rankings</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="acc-grid">
+      <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;text-align:center;" class="fade-up">
+        <div style="margin-bottom:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="48" height="48"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+        <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px;">NAAC Accredited</div>
+        <div style="font-size:13px;color:var(--text-muted);">National Assessment and Accreditation Council</div>
+      </div>
+      <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;text-align:center;" class="fade-up delay-1">
+        <div style="margin-bottom:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" width="48" height="48"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px;">NBA Accredited</div>
+        <div style="font-size:13px;color:var(--text-muted);">National Board of Accreditation – Multiple Programs</div>
+      </div>
+      <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;text-align:center;" class="fade-up delay-2">
+        <div style="margin-bottom:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="48" height="48"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px;">UGC Autonomous</div>
+        <div style="font-size:13px;color:var(--text-muted);">University Grants Commission – Autonomous Status</div>
+      </div>
+      <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;text-align:center;" class="fade-up delay-3">
+        <div style="margin-bottom:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" width="48" height="48"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+        <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px;">AICTE Approved</div>
+        <div style="font-size:13px;color:var(--text-muted);">All India Council for Technical Education</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Our Team</p>
+      <h2 class="section-title">Principals &amp; <span>Directors</span></h2>
+      <p class="section-desc">Visionary leaders guiding our institutions toward academic excellence and innovation.</p>
+    </div>
+    <div class="leadership-grid">
+      <div class="leader-card fade-up">
+        <div class="leader-avatar"><img src="assets/images/cmrcet.jpg" alt="Major. Dr. V. A. Narayana" style="width:100%; height:100%; object-fit:contain; object-position:center;"></div>
+        <div class="leader-info">
+          <div class="leader-name">Major. Dr. V. A. Narayana</div>
+          <div class="leader-role" style="line-height:1.4;">B.Tech, M.Tech, Ph.D<br>Principal</div>
+          <div class="leader-college" style="margin-top:12px; font-weight:600;">CMR COLLEGE OF ENGINEERING &amp; TECHNOLOGY</div>
+        </div>
+      </div>
+      <div class="leader-card fade-up delay-1">
+        <div class="leader-avatar"><img src="assets/images/cmrit.jpg" alt="Dr. B. SATYANARAYANA" style="width:100%; height:100%; object-fit:contain; object-position:center;"></div>
+        <div class="leader-info">
+          <div class="leader-name">Dr. B. SATYANARAYANA</div>
+          <div class="leader-role" style="line-height:1.4;">B.Tech, M.Tech, Ph.D<br>Principal</div>
+          <div class="leader-college" style="margin-top:12px; font-weight:600;">CMR INSTITUTE OF TECHNOLOGY</div>
+        </div>
+      </div>
+      <div class="leader-card fade-up delay-2">
+        <div class="leader-avatar"><img src="assets/images/cmrtc.jpg" alt="Dr. A. Raji Reddy" style="width:100%; height:100%; object-fit:contain; object-position:center;"></div>
+        <div class="leader-info">
+          <div class="leader-name">Dr. A. Raji Reddy</div>
+          <div class="leader-role" style="line-height:1.4;">B.Tech, M.Tech, PhD<br>Professor &amp; Director</div>
+          <div class="leader-college" style="margin-top:12px; font-weight:600;">CMR TECHNICAL CAMPUS</div>
+        </div>
+      </div>
+      <div class="leader-card fade-up">
+        <div class="leader-avatar"><img src="assets/images/cmrec.jpg" alt="Dr. A.S.Reddy" onerror="this.src='assets/images/member1.jpg'" style="width:100%; height:100%; object-fit:contain; object-position:center;"></div>
+        <div class="leader-info">
+          <div class="leader-name">Dr. A.S.Reddy</div>
+          <div class="leader-role" style="line-height:1.4;">ME, PhD (Electrical Engineering)<br>Principal</div>
+          <div class="leader-college" style="margin-top:12px; font-weight:600;">CMR ENGINEERING COLLEGE</div>
+        </div>
+      </div>
+      <div class="leader-card fade-up delay-1">
+        <div class="leader-avatar"><img src="assets/images/cmrcp.jpg" alt="Dr. T Rama Rao" style="width:100%; height:100%; object-fit:contain; object-position:center;"></div>
+        <div class="leader-info">
+          <div class="leader-name">Dr. T Rama Rao</div>
+          <div class="leader-role" style="line-height:1.4;">M. Pharm., Ph.D.<br>Principal</div>
+          <div class="leader-college" style="margin-top:12px; font-weight:600;">CMR COLLEGE OF PHARMACY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY MOUs -->
+<section id="excellence" style="background:#fff;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Industry Partnerships</p>
+      <h2 class="section-title">Center of <span>Excellence</span> — MOU Partners</h2>
+      <p class="section-desc">Strategic partnerships with global technology leaders to deliver industry-ready education.</p>
+    </div>
+    <div class="mou-grid">
+      <div class="mou-chip fade-up">
+        <img src="https://logo.clearbit.com/epam.com" alt="EPAM Systems" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">EPAM Systems</div>
+        <div class="mou-type">Java Full Stack COE</div>
+      </div>
+      <div class="mou-chip fade-up delay-1">
+        <img src="https://logo.clearbit.com/virtusa.com" alt="Virtusa" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Virtusa</div>
+        <div class="mou-type">Full Stack Java Dev</div>
+      </div>
+      <div class="mou-chip fade-up delay-2">
+        <img src="https://logo.clearbit.com/aws.amazon.com" alt="Amazon AWS" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Amazon AWS</div>
+        <div class="mou-type">Cloud & CFOM Program</div>
+      </div>
+      <div class="mou-chip fade-up delay-3">
+        <img src="https://logo.clearbit.com/capgemini.com" alt="Capgemini" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Capgemini</div>
+        <div class="mou-type">IOT & Embedded Systems</div>
+      </div>
+      <div class="mou-chip fade-up">
+        <img src="https://logo.clearbit.com/tcs.com" alt="TCS iON" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">TCS iON</div>
+        <div class="mou-type">Exam Centre | GATE, EAMCET</div>
+      </div>
+      <div class="mou-chip fade-up delay-1">
+        <img src="https://logo.clearbit.com/wipro.com" alt="Wipro" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Wipro</div>
+        <div class="mou-type">Talent Next Program</div>
+      </div>
+      <div class="mou-chip fade-up delay-2">
+        <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Microsoft</div>
+        <div class="mou-type">Innovation Center</div>
+      </div>
+      <div class="mou-chip fade-up delay-3">
+        <img src="https://logo.clearbit.com/zensar.com" alt="Zensar" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Zensar</div>
+        <div class="mou-type">Employability Skills Dev</div>
+      </div>
+      <div class="mou-chip fade-up">
+        <img src="https://logo.clearbit.com/redhat.com" alt="RedHat Academy" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">RedHat Academy</div>
+        <div class="mou-type">Linux & Open Source</div>
+      </div>
+      <div class="mou-chip fade-up delay-1">
+        <img src="https://logo.clearbit.com/cambridge.org" alt="Cambridge" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Cambridge</div>
+        <div class="mou-type">BEC Certification</div>
+      </div>
+      <div class="mou-chip fade-up delay-2">
+        <img src="https://logo.clearbit.com/auburn.edu" alt="Auburn University" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Auburn University</div>
+        <div class="mou-type">International Research</div>
+      </div>
+      <div class="mou-chip fade-up delay-3">
+        <img src="https://logo.clearbit.com/steinbeis.de" alt="Steinbeis Germany" onerror="this.style.display='none'" style="height:36px;width:auto;margin:0 auto 16px;display:block;object-fit:contain;max-width:100%;">
+        <div class="mou-name">Steinbeis Germany</div>
+        <div class="mou-type">Technology Transfer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
+          <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">ig</a>
+            <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">yt</a>
+            <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">X</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Our Colleges</h4>
+          <div class="footer-links">
+            <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
+            <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of Technology</a>
+            <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
+            <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
+            <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
+            <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="about.html">About CMRGI</a>
+            <a href="management.html">Management</a>
+            <a href="admissions.html">Admissions 2025-26</a>
+            <a href="admissions.html#fees">Fee Structure</a>
+            <a href="placements.html">Placement Cell</a>
+            <a href="infrastructure.html">Infrastructure</a>
+            <a href="research.html">Research &amp; Development</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="alumni.html">Alumni</a>
+            <a href="student-activities.html">Student Activities</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-links">
+            <a href="tel:+919100760559">+91 9100760559</a>
+            <a href="tel:+919100470559">+91 9100470559</a>
+            <a href="tel:+919247033441">+91 9247033441</a>
+            <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
+            <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="contact.html">Grievance Cell</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" aria-label="Back to top">↑</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni | CMR Group of Institutions – Hyderabad</title>
+  <link rel="icon" href="assets/images/favicon.ico" />
+  <meta name="description" content="Join the CMR Group Alumni network — 18,000+ engineers, 4,500 managers and 1,200 pharmacists. Register, connect and give back." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .alumni-stats-hero { background:linear-gradient(135deg,var(--navy),var(--blue-light)); padding:72px 24px; text-align:center; }
+    .alumni-hero-stats { display:flex; justify-content:center; gap:64px; margin-top:40px; flex-wrap:wrap; }
+    .a-stat { color:#fff; text-align:center; }
+    .a-stat-num { font-size:52px; font-weight:900; line-height:1; }
+    .a-stat-lbl { font-size:14px; opacity:.7; margin-top:6px; }
+    .alumni-form-wrap { background:#fff; border-radius:var(--radius-lg); padding:48px; box-shadow:var(--shadow-lg); border:1px solid var(--border); max-width:720px; margin:0 auto; }
+    .alumni-form-title { font-size:24px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+    .alumni-form-sub { font-size:14px; color:var(--text-muted); margin-bottom:32px; }
+    .testimonial-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .testimonial-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; transition:var(--transition); }
+    .testimonial-card:hover { box-shadow:var(--shadow-md); }
+    .testimonial-stars { color:var(--gold); font-size:14px; margin-bottom:12px; }
+    .testimonial-text { font-size:14px; color:var(--text-muted); line-height:1.8; margin-bottom:20px; font-style:italic; }
+    .testimonial-author { display:flex; align-items:center; gap:12px; }
+    .ta-avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+    .ta-name { font-size:14px; font-weight:700; color:var(--navy); }
+    .ta-role { font-size:12px; color:var(--text-muted); }
+    @media(max-width:768px){ .alumni-hero-stats{ gap:32px; } .testimonial-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<header id="header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
+      <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="about.html#about-cmrgi">About CMRGI</a>
+          <a href="management.html">Management</a>
+          <a href="about.html#leadership">Principals &amp; Directors</a>
+          <a href="student-activities.html">Student Activities</a>
+          <a href="about.html#excellence">Center of Excellence</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
+          <a href="courses.html#cmrit">CMR Institute of Technology</a>
+          <a href="courses.html#cmrec">CMR Engineering College</a>
+          <a href="courses.html#cmrtc">CMR Technical Campus</a>
+          <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+          <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="admissions.html#procedure">Admission Procedure</a>
+          <a href="admissions.html#courses">Courses &amp; Intake</a>
+          <a href="admissions.html#fees">Fee Structure</a>
+          <a href="admissions.html#enquiry">Enquiry Form</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="placements.html#about-pc">About Placement Office</a>
+          <a href="placements.html#rankings">Rankings &amp; Highlights</a>
+          <a href="placements.html#training">Pre-Placement Training</a>
+          <a href="placements.html#companies">Top Companies</a>
+          <a href="placements.html#placed">Placement Records</a>
+          <a href="placements.html#graph">Placement Graph</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="infrastructure.html">Infrastructure Overview</a>
+          <a href="hostel.html">Hostel</a>
+          <a href="transport.html">Transport Facility</a>
+          <a href="other-facilities.html">Other Facilities</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="research.html">Research &amp; Development</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="alumni.html">Alumni</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <p class="m-section-title">Navigation</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About CMRGI</a>
+  <a href="management.html">Management</a>
+  <a href="student-activities.html">Student Activities</a>
+  <p class="m-section-title">Our Colleges</p>
+  <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
+  <a href="courses.html#cmrit">CMR Institute of Technology</a>
+  <a href="courses.html#cmrec">CMR Engineering College</a>
+  <a href="courses.html#cmrtc">CMR Technical Campus</a>
+  <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+  <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+  <p class="m-section-title">Admissions</p>
+  <a href="admissions.html#procedure">Admission Procedure</a>
+  <a href="admissions.html#courses">Courses &amp; Intake</a>
+  <a href="admissions.html#fees">Fee Structure</a>
+  <p class="m-section-title">Placements</p>
+  <a href="placements.html">Placement Cell</a>
+  <a href="placements.html#companies">Top Companies</a>
+  <a href="placements.html#placed">Placement Records</a>
+  <p class="m-section-title">Infrastructure</p>
+  <a href="infrastructure.html">Infrastructure Overview</a>
+  <a href="hostel.html">Hostel</a>
+  <a href="transport.html">Transport Facility</a>
+  <a href="other-facilities.html">Other Facilities</a>
+  <p class="m-section-title">More Pages</p>
+  <a href="research.html">Research &amp; Development</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="alumni.html">Alumni</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
+</nav>
+
+<section class="page-hero">
+  <p class="page-hero-label">Our Network</p>
+  <h1 class="page-hero-title">CMR Alumni</h1>
+  <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span><span style="color:#fff;">Alumni</span></nav>
+</section>
+
+<!-- Alumni Stats Hero -->
+<div class="alumni-stats-hero">
+  <p style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);">Our Global Network</p>
+  <h2 style="font-size:clamp(28px,4vw,44px);font-weight:900;color:#fff;margin-top:12px;">23,700+ Alumni Across the World</h2>
+  <div class="alumni-hero-stats">
+    <div class="a-stat"><div class="a-stat-num" style="color:var(--gold-light);">18K+</div><div class="a-stat-lbl">Engineers</div></div>
+    <div class="a-stat"><div class="a-stat-num" style="color:#a7f3d0;">4.5K+</div><div class="a-stat-lbl">Managers</div></div>
+    <div class="a-stat"><div class="a-stat-num" style="color:#fca5a5;">1.2K+</div><div class="a-stat-lbl">Pharmacists</div></div>
+    <div class="a-stat"><div class="a-stat-num" style="color:#bfdbfe;">200+</div><div class="a-stat-lbl">Entrepreneurs</div></div>
+  </div>
+</div>
+
+<!-- Alumni Registration -->
+<section style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Join the Network</p>
+      <h2 class="section-title">Alumni <span>Registration</span></h2>
+      <p class="section-desc">Register to stay connected with your alma mater. Get access to alumni events, job referrals, and networking opportunities.</p>
+    </div>
+    <div class="alumni-form-wrap fade-up">
+      <div class="alumni-form-title">Alumni Registration Form</div>
+      <div class="alumni-form-sub">Fill in your details below to register in the CMR Alumni Network</div>
+      <form id="alumni-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="al-fname">First Name *</label>
+            <input type="text" id="al-fname" name="first_name" placeholder="First Name" required />
+          </div>
+          <div class="form-field">
+            <label for="al-lname">Last Name *</label>
+            <input type="text" id="al-lname" name="last_name" placeholder="Last Name" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="al-phone">Phone *</label>
+            <input type="tel" id="al-phone" name="phone" placeholder="+91 XXXXXXXXXX" required />
+          </div>
+          <div class="form-field">
+            <label for="al-email">Email *</label>
+            <input type="email" id="al-email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="al-college">College *</label>
+            <select id="al-college" name="college" required>
+              <option value="">— Select College —</option>
+              <option>CMRCET</option><option>CMRIT</option>
+              <option>CMRTC</option><option>CMREC</option>
+              <option>CMR College of Pharmacy (CMRCP)</option>
+              <option>CMR Institute of Medical Sciences (CMRIMS)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="al-course">Course *</label>
+            <select id="al-course" name="course" required>
+              <option value="">— Select Course —</option>
+              <option>B.Tech</option><option>M.Tech</option>
+              <option>MBA</option><option>MCA</option>
+              <option>B.Pharmacy</option><option>M.Pharmacy</option>
+              <option>Pharm.D</option><option>MBBS</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="al-branch">Branch / Specialization *</label>
+            <input type="text" id="al-branch" name="branch" placeholder="e.g. CSE, ECE, MBA Marketing..." required />
+          </div>
+          <div class="form-field">
+            <label for="al-passout">Year of Passing Out *</label>
+            <select id="al-passout" name="passout_year" required>
+              <option value="">— Select Year —</option>
+              <option>2024</option><option>2023</option><option>2022</option><option>2021</option>
+              <option>2020</option><option>2019</option><option>2018</option><option>2017</option>
+              <option>2016</option><option>2015</option><option>2014</option><option>2013</option>
+              <option>2012 or earlier</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="al-company">Current Company / Organization</label>
+            <input type="text" id="al-company" name="company" placeholder="Where are you working now?" />
+          </div>
+          <div class="form-field">
+            <label for="al-designation">Current Designation</label>
+            <input type="text" id="al-designation" name="designation" placeholder="Your job title" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="al-location">Current City / Country</label>
+          <input type="text" id="al-location" name="location" placeholder="e.g. Hyderabad, Bangalore, USA..." />
+        </div>
+        <div class="form-field">
+          <label for="al-linkedin">LinkedIn Profile URL</label>
+          <input type="url" id="al-linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourname" />
+        </div>
+        <div class="form-field">
+          <label for="al-message">Message for Your Alma Mater</label>
+          <textarea id="al-message" name="message" rows="3" placeholder="Share a memory, achievement, or any message to your juniors..."></textarea>
+        </div>
+        <button type="submit" class="btn-blue" style="width:100%;justify-content:center;font-size:16px;padding:16px;">Submit Registration →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Alumni Testimonials -->
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Alumni Voices</p>
+      <h2 class="section-title">What Our <span>Alumni Say</span></h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars"></div>
+        <p class="testimonial-text">"CMR gave me the technical foundation and soft skills that helped me secure a position at TCS as a Systems Engineer straight out of college. The placement training was excellent."</p>
+        <div class="testimonial-author">
+          <div class="ta-avatar" style="background:rgba(26,77,179,.1);">‍</div>
+          <div><div class="ta-name">Rahul Sharma</div><div class="ta-role">Systems Engineer, TCS • CMRCET '22</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up delay-1">
+        <div class="testimonial-stars"></div>
+        <p class="testimonial-text">"The Centres of Excellence at CMRIT gave me hands-on experience in AI & ML that directly contributed to my research at IIT Bombay and eventually landing a data science role at Amazon."</p>
+        <div class="testimonial-author">
+          <div class="ta-avatar" style="background:rgba(5,150,105,.1);">‍</div>
+          <div><div class="ta-name">Priya Nair</div><div class="ta-role">Data Scientist, Amazon • CMRIT '21</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up delay-2">
+        <div class="testimonial-stars"></div>
+        <p class="testimonial-text">"CMRCP's research labs and faculty guidance helped me qualify for GATE with a top percentile. Today I am pursuing my M.Pharmacy at NIT Warangal on a government scholarship."</p>
+        <div class="testimonial-author">
+          <div class="ta-avatar" style="background:rgba(212,160,23,.1);">‍️</div>
+          <div><div class="ta-name">Anusha Reddy</div><div class="ta-role">M.Pharmacy, NIT Warangal • CMRCP '22</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
+          <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">ig</a>
+            <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">yt</a>
+            <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">X</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Our Colleges</h4>
+          <div class="footer-links">
+            <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
+            <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of Technology</a>
+            <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
+            <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
+            <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
+            <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="about.html">About CMRGI</a>
+            <a href="management.html">Management</a>
+            <a href="admissions.html">Admissions 2025-26</a>
+            <a href="admissions.html#fees">Fee Structure</a>
+            <a href="placements.html">Placement Cell</a>
+            <a href="infrastructure.html">Infrastructure</a>
+            <a href="research.html">Research &amp; Development</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="alumni.html">Alumni</a>
+            <a href="student-activities.html">Student Activities</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-links">
+            <a href="tel:+919100760559">+91 9100760559</a>
+            <a href="tel:+919100470559">+91 9100470559</a>
+            <a href="tel:+919247033441">+91 9247033441</a>
+            <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
+            <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="contact.html">Grievance Cell</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-top" aria-label="Back to top">↑</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

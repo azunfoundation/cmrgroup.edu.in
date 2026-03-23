@@ -1,0 +1,5 @@
+<!-- TCS logo placeholder SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" fill="#0f4b96" rx="6"/>
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="white" letter-spacing="4">TCS</text>
+</svg>

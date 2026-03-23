@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rankings and Highlights | CMR Group of Institutions</title>
+  <link rel="icon" href="assets/images/favicon.ico" />
+  <meta name="description" content="CMR Group achievements — NIRF Rank 72 in Pharmacy, Band 201-250 in Engineering, 250+ patents, Guinness World Records, CEER 2023-24 highlights." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .achievement-timeline { position:relative; padding-left:32px; }
+    .achievement-timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--blue),var(--gold)); }
+    .achievement-item { position:relative; margin-bottom:36px; }
+    .achievement-item::before { content:''; position:absolute; left:-28px; top:6px; width:14px; height:14px; border-radius:50%; background:var(--blue); border:2px solid #fff; box-shadow:0 0 0 3px rgba(26,77,179,.2); }
+    .achievement-item.gold::before { background:var(--gold); box-shadow:0 0 0 3px rgba(212,160,23,.2); }
+    .achievement-item.green::before { background:#059669; box-shadow:0 0 0 3px rgba(5,150,105,.2); }
+    .achievement-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; transition:var(--transition); }
+    .achievement-card:hover { box-shadow:var(--shadow-sm); border-color:var(--blue); }
+    .achievement-badge { display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; border-radius:6px; padding:3px 10px; margin-bottom:10px; }
+    .badge-ranking { background:rgba(26,77,179,.1); color:var(--blue); }
+    .badge-sports { background:rgba(212,160,23,.1); color:#92700a; }
+    .badge-research { background:rgba(5,150,105,.1); color:#059669; }
+    .badge-accred { background:rgba(124,58,237,.1); color:#7c3aed; }
+    .achievement-title { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .achievement-desc { font-size:14px; color:var(--text-muted); line-height:1.7; }
+    .achievements-main { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+    .ceer-card { background:linear-gradient(135deg,var(--navy),var(--blue)); border-radius:var(--radius-lg); padding:36px; color:#fff; }
+    .ceer-title { font-size:22px; font-weight:800; color:var(--gold-light); margin-bottom:16px; }
+    .ceer-items { display:flex; flex-direction:column; gap:12px; }
+    .ceer-item { display:flex; align-items:center; gap:12px; font-size:14px; color:rgba(255,255,255,.85); padding:10px 14px; background:rgba(255,255,255,.08); border-radius:8px; }
+    @media(max-width:900px){ .achievements-main{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<header id="header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
+      <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="about.html#about-cmrgi">About CMRGI</a>
+          <a href="management.html">Management</a>
+          <a href="about.html#leadership">Principals &amp; Directors</a>
+          <a href="student-activities.html">Student Activities</a>
+          <a href="about.html#excellence">Center of Excellence</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
+          <a href="courses.html#cmrit">CMR Institute of Technology</a>
+          <a href="courses.html#cmrec">CMR Engineering College</a>
+          <a href="courses.html#cmrtc">CMR Technical Campus</a>
+          <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+          <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="admissions.html#procedure">Admission Procedure</a>
+          <a href="admissions.html#courses">Courses &amp; Intake</a>
+          <a href="admissions.html#fees">Fee Structure</a>
+          <a href="admissions.html#enquiry">Enquiry Form</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="placements.html#about-pc">About Placement Office</a>
+          <a href="placements.html#rankings">Rankings &amp; Highlights</a>
+          <a href="placements.html#training">Pre-Placement Training</a>
+          <a href="placements.html#companies">Top Companies</a>
+          <a href="placements.html#placed">Placement Records</a>
+          <a href="placements.html#graph">Placement Graph</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="infrastructure.html">Infrastructure Overview</a>
+          <a href="hostel.html">Hostel</a>
+          <a href="transport.html">Transport Facility</a>
+          <a href="other-facilities.html">Other Facilities</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="research.html">Research &amp; Development</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="alumni.html">Alumni</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <p class="m-section-title">Navigation</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About CMRGI</a>
+  <a href="management.html">Management</a>
+  <a href="student-activities.html">Student Activities</a>
+  <p class="m-section-title">Our Colleges</p>
+  <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
+  <a href="courses.html#cmrit">CMR Institute of Technology</a>
+  <a href="courses.html#cmrec">CMR Engineering College</a>
+  <a href="courses.html#cmrtc">CMR Technical Campus</a>
+  <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+  <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+  <p class="m-section-title">Admissions</p>
+  <a href="admissions.html#procedure">Admission Procedure</a>
+  <a href="admissions.html#courses">Courses &amp; Intake</a>
+  <a href="admissions.html#fees">Fee Structure</a>
+  <p class="m-section-title">Placements</p>
+  <a href="placements.html">Placement Cell</a>
+  <a href="placements.html#companies">Top Companies</a>
+  <a href="placements.html#placed">Placement Records</a>
+  <p class="m-section-title">Infrastructure</p>
+  <a href="infrastructure.html">Infrastructure Overview</a>
+  <a href="hostel.html">Hostel</a>
+  <a href="transport.html">Transport Facility</a>
+  <a href="other-facilities.html">Other Facilities</a>
+  <p class="m-section-title">More Pages</p>
+  <a href="research.html">Research &amp; Development</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="alumni.html">Alumni</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
+</nav>
+
+<section class="page-hero">
+  <p class="page-hero-label">Placement Excellence</p>
+  <h1 class="page-hero-title">Rankings & Highlights</h1>
+  <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="placements.html">Placements</a><span>›</span><span style="color:#fff;">Rankings</span></nav>
+</section>
+
+
+<section style="background:#fff; padding:60px 0;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;" class="fade-up">
+      <div>
+        <p class="section-label">A Legacy of Excellence</p>
+        <h2 class="section-title">Our Distinctions & <br><span>Top Rankings</span></h2>
+        <ul style="margin-top:24px; color:var(--text-muted); font-size:15px; line-height:1.8; list-style:none; padding-left:0;">
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; font-weight:600;">RANK BAND 201-250 IN NIRF INDIA RANKINGS FOR 2022 UNDER ENGINEERING CATEGORY</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--blue); border-radius:0 8px 8px 0; font-weight:600;">RANK 72ND IN NIRF INDIA RANKINGS FOR 2022 UNDER PHARMACY CATEGORY</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; font-weight:600;">RANKED UNDER “EXCELLENT BAND” IN ARIIA-2021 AND ACHIEVED ARIIA-2020 ALL INDIA 5TH RANK IN PRIVATE INSTITUTIONS CATEGORY.</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--blue); border-radius:0 8px 8px 0; font-weight:600;">‘AAAA’ IN THE SURVEY OF “CAREER 360 MAGAZINE 2022”</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; font-weight:600;">3RD AMONG OUTSTANDING ENGINEERING COLLEGES OF EXCELLENCE BY “CSR GHRDC SURVEY 2022”</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--blue); border-radius:0 8px 8px 0; font-weight:600;">62ND AMONG INDIA’S TOP 150 ENGINEERING COLLEGES IN 2022 BY “TIMES ENGINEERING 2022”</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; font-weight:600;">77TH AMONG TOP ENGINEERING COLLEGES IN INDIA BY “THE WEEK SURVEY 2021”</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--blue); border-radius:0 8px 8px 0; font-weight:600;">CENTRE OF EXCELLENCE AWARD FROM DIALOGUE INDIA EDITOR’S CHOICE EDUCATION</li>
+        </ul>
+      </div>
+      <div>
+        <ul style="color:var(--text-muted); font-size:15px; line-height:1.8; list-style:none; padding-left:0; margin-top:118px;">
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; font-weight:600;">101ST AMONG INDIA’S TOP 238 ENGINEERING COLLEGES</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--blue); border-radius:0 8px 8px 0; font-weight:600;">137TH AMONG INDIA’S TOP 150 ENGINEERING COLLEGES</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; font-weight:600;">PARTNERS IN GROWTH AWARD FROM ICT ACADEMY</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--blue); border-radius:0 8px 8px 0; font-weight:600;">CITD EDUCATION PROMOTION AND DEVELOPMENT AWARD FOR OUTSTANDING ACHIEVEMENT IN TECHNICAL EDUCATION</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; font-weight:600;">BEST COLLEGE IN PLACEMENTS AWARD FROM STUMAGZ</li>
+          <li style="margin-bottom:12px; padding:16px; background:var(--bg-soft); border-left:4px solid var(--blue); border-radius:0 8px 8px 0; font-weight:600;">BEST INFRASTRUCTURE AWARD AND BEST SPORTS COLLEGE AWARD FROM STUMAGZ</li>
+        </ul>
+        <div style="margin-top:24px;">
+          <img src="assets/images/placements7.jpg" style="width:100%; border-radius:var(--radius-lg); box-shadow:var(--shadow-md); border:1px solid var(--border);" onerror="this.src='assets/images/coe.jpg'" alt="Rankings and Highlights">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
+          <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">ig</a>
+            <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">yt</a>
+            <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">X</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Our Colleges</h4>
+          <div class="footer-links">
+            <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
+            <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of Technology</a>
+            <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
+            <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
+            <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
+            <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="about.html">About CMRGI</a>
+            <a href="management.html">Management</a>
+            <a href="admissions.html">Admissions 2025-26</a>
+            <a href="admissions.html#fees">Fee Structure</a>
+            <a href="placements.html">Placement Cell</a>
+            <a href="infrastructure.html">Infrastructure</a>
+            <a href="research.html">Research &amp; Development</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="alumni.html">Alumni</a>
+            <a href="student-activities.html">Student Activities</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-links">
+            <a href="tel:+919100760559">+91 9100760559</a>
+            <a href="tel:+919100470559">+91 9100470559</a>
+            <a href="tel:+919247033441">+91 9247033441</a>
+            <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
+            <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="contact.html">Grievance Cell</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-top" aria-label="Back to top">↑</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infrastructure | CMR Group of Institutions – Hyderabad</title>
+  <link rel="icon" href="assets/images/favicon.ico" />
+  <meta name="description" content="CMR Group campus infrastructure — 70 acres, 5000+ computing facilities, 2000-seat auditorium, Wi-Fi campus, hostels, transport, sports complex and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .infra-big-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; background:var(--border); border-radius:var(--radius-lg); overflow:hidden; margin-bottom:64px; }
+    .infra-stat { background:#fff; padding:32px 20px; text-align:center; transition:var(--transition); }
+    .infra-stat:hover { background:var(--navy); }
+    .infra-stat:hover .infra-num,.infra-stat:hover .infra-lbl { color:#fff; }
+    .infra-num { font-size:36px; font-weight:900; color:var(--navy); line-height:1; }
+    .infra-unit { font-size:22px; font-weight:900; color:var(--blue); }
+    .infra-lbl { font-size:12px; color:var(--text-muted); margin-top:8px; text-transform:uppercase; letter-spacing:.5px; font-weight:600; }
+    .infra-features-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; }
+    .infra-feature-block { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:36px; transition:var(--transition); }
+    .infra-feature-block:hover { box-shadow:var(--shadow-md); border-color:var(--blue); }
+    .ifb-icon { font-size:40px; margin-bottom:16px; }
+    .ifb-title { font-size:20px; font-weight:800; color:var(--navy); margin-bottom:12px; }
+    .ifb-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .ifb-list li { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text-muted); }
+    .ifb-list li::before { content:''; color:var(--blue); font-weight:700; }
+    .library-stats { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+    .lib-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; text-align:center; }
+    .lib-num { font-size:28px; font-weight:800; color:var(--blue); }
+    .lib-lbl { font-size:12px; color:var(--text-muted); margin-top:4px; }
+    .sports-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .sport-chip { background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; text-align:center; font-size:14px; font-weight:700; color:var(--navy); transition:var(--transition); }
+    .sport-chip:hover { background:var(--navy); color:#fff; }
+    .sport-chip .si { font-size:28px; display:block; margin-bottom:8px; }
+    @media(max-width:900px){ .infra-big-grid{ grid-template-columns:repeat(2,1fr); } .infra-features-grid{ grid-template-columns:1fr; } .library-stats{ grid-template-columns:repeat(2,1fr); } .sports-grid{ grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+<header id="header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
+      <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="about.html#about-cmrgi">About CMRGI</a>
+          <a href="management.html">Management</a>
+          <a href="about.html#leadership">Principals &amp; Directors</a>
+          <a href="student-activities.html">Student Activities</a>
+          <a href="about.html#excellence">Center of Excellence</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
+          <a href="courses.html#cmrit">CMR Institute of Technology</a>
+          <a href="courses.html#cmrec">CMR Engineering College</a>
+          <a href="courses.html#cmrtc">CMR Technical Campus</a>
+          <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+          <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="admissions.html#procedure">Admission Procedure</a>
+          <a href="admissions.html#courses">Courses &amp; Intake</a>
+          <a href="admissions.html#fees">Fee Structure</a>
+          <a href="admissions.html#enquiry">Enquiry Form</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="placements.html#about-pc">About Placement Office</a>
+          <a href="placements.html#rankings">Rankings &amp; Highlights</a>
+          <a href="placements.html#training">Pre-Placement Training</a>
+          <a href="placements.html#companies">Top Companies</a>
+          <a href="placements.html#placed">Placement Records</a>
+          <a href="placements.html#graph">Placement Graph</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="infrastructure.html">Infrastructure Overview</a>
+          <a href="hostel.html">Hostel</a>
+          <a href="transport.html">Transport Facility</a>
+          <a href="other-facilities.html">Other Facilities</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="research.html">Research &amp; Development</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="alumni.html">Alumni</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <p class="m-section-title">Navigation</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About CMRGI</a>
+  <a href="management.html">Management</a>
+  <a href="student-activities.html">Student Activities</a>
+  <p class="m-section-title">Our Colleges</p>
+  <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
+  <a href="courses.html#cmrit">CMR Institute of Technology</a>
+  <a href="courses.html#cmrec">CMR Engineering College</a>
+  <a href="courses.html#cmrtc">CMR Technical Campus</a>
+  <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+  <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+  <p class="m-section-title">Admissions</p>
+  <a href="admissions.html#procedure">Admission Procedure</a>
+  <a href="admissions.html#courses">Courses &amp; Intake</a>
+  <a href="admissions.html#fees">Fee Structure</a>
+  <p class="m-section-title">Placements</p>
+  <a href="placements.html">Placement Cell</a>
+  <a href="placements.html#companies">Top Companies</a>
+  <a href="placements.html#placed">Placement Records</a>
+  <p class="m-section-title">Infrastructure</p>
+  <a href="infrastructure.html">Infrastructure Overview</a>
+  <a href="hostel.html">Hostel</a>
+  <a href="transport.html">Transport Facility</a>
+  <a href="other-facilities.html">Other Facilities</a>
+  <p class="m-section-title">More Pages</p>
+  <a href="research.html">Research &amp; Development</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="alumni.html">Alumni</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
+</nav>
+
+<section class="page-hero">
+  <p class="page-hero-label">Safe & Reliable</p>
+  <h1 class="page-hero-title">Transport Facility</h1>
+  <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="infrastructure.html">Infrastructure</a><span>›</span><span style="color:#fff;">Transport</span></nav>
+</section>
+
+<section id="transport-overview" style="background:#fff; padding: 72px 0;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Commute with Ease</p>
+      <h2 class="section-title">Extensive <span>Bus Network</span></h2>
+      <p class="section-desc">We operate a massive fleet of modern buses across all major routes in Hyderabad to ensure a safe, comfortable, and punctual commute for all our students and staff.</p>
+    </div>
+    
+    <div class="infra-features-grid" style="margin-top: 40px;">
+      <div class="infra-feature-block fade-left">
+        <h3 class="ifb-title" style="margin-bottom: 24px;">City-Wide Coverage</h3>
+        <p style="color:var(--text-muted); font-size: 15px; margin-bottom: 24px; line-height: 1.8;">Our transport network covers almost every corner of Hyderabad and Secunderabad. We systematically map routes to ensure minimal travel time and maximum convenience.</p>
+        <ul class="ifb-list">
+          <li>Extensive network of 100+ buses</li>
+          <li>Covers ECIL, LB Nagar, Mehdipatnam, Kukatpally</li>
+          <li>Dedicated routes for faculty and staff</li>
+          <li>Regular maintenance and safety checks</li>
+        </ul>
+      </div>
+      <div class="infra-feature-block fade-right">
+        <h3 class="ifb-title" style="margin-bottom: 24px;">Safety & Technology</h3>
+        <p style="color:var(--text-muted); font-size: 15px; margin-bottom: 24px; line-height: 1.8;">The safety of our students is paramount. Every bus is equipped with modern tracking and safety features so parents and students can track commutes in real-time.</p>
+        <ul class="ifb-list">
+          <li>GPS-enabled live tracking system</li>
+          <li>Trained, experienced, and background-verified drivers</li>
+          <li>First-aid kits installed in every bus</li>
+          <li>Speed governors strictly enforced</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft); padding: 72px 0;">
+  <div class="container">
+    <div class="section-header-center fade-up">
+      <p class="section-label">Public Connectivity</p>
+      <h2 class="section-title">Other <span>Commute Options</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="fade-up">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;text-align:center;">
+        <div style="font-size:15px;font-weight:700;color:var(--navy);">TSRTC Buses</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:6px;">Regular TSRTC buses run from Secunderabad and Medchal right up to the campus entrance bus stop.</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;text-align:center;">
+        <div style="font-size:15px;font-weight:700;color:var(--navy);">MMTS Train Network</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:6px;">Medchal railway station connects to the MMTS local network, making it convenient for long-distance city commuters.</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;text-align:center;">
+        <div style="font-size:15px;font-weight:700;color:var(--navy);">Private Vehicles</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:6px;">Ample, secure parking space is available on campus for students and staff using personal cars and two-wheelers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
+          <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">ig</a>
+            <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">yt</a>
+            <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">X</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Our Colleges</h4>
+          <div class="footer-links">
+            <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
+            <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of Technology</a>
+            <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
+            <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
+            <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
+            <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="about.html">About CMRGI</a>
+            <a href="management.html">Management</a>
+            <a href="admissions.html">Admissions 2025-26</a>
+            <a href="admissions.html#fees">Fee Structure</a>
+            <a href="placements.html">Placement Cell</a>
+            <a href="infrastructure.html">Infrastructure</a>
+            <a href="research.html">Research &amp; Development</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="alumni.html">Alumni</a>
+            <a href="student-activities.html">Student Activities</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-links">
+            <a href="tel:+919100760559">+91 9100760559</a>
+            <a href="tel:+919100470559">+91 9100470559</a>
+            <a href="tel:+919247033441">+91 9247033441</a>
+            <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
+            <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="contact.html">Grievance Cell</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-top" aria-label="Back to top">↑</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
