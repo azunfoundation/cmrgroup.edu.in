@@ -99,7 +99,7 @@ if (contactForm) {
     formData.append('_captcha', 'false');
     formData.append('_subject', 'New Contact Form Message');
 
-    fetch("https://formsubmit.co/ajax/info@cmrgroup.edu.in", {
+    fetch("https://formsubmit.co/ajax/Admissions@cmrgroup.edu.in", {
       method: "POST",
       body: formData
     })
@@ -138,7 +138,7 @@ if (enquiryForm) {
     formData.append('_captcha', 'false');
     formData.append('_subject', 'New Admission Enquiry');
 
-    fetch("https://formsubmit.co/ajax/info@cmrgroup.edu.in", {
+    fetch("https://formsubmit.co/ajax/Admissions@cmrgroup.edu.in", {
       method: "POST",
       body: formData
     })
@@ -175,7 +175,7 @@ if (alumniForm) {
     formData.append('_captcha', 'false');
     formData.append('_subject', 'New Alumni Registration');
 
-    fetch("https://formsubmit.co/ajax/info@cmrgroup.edu.in", {
+    fetch("https://formsubmit.co/ajax/Admissions@cmrgroup.edu.in", {
       method: "POST",
       body: formData
     })

@@ -1,480 +1,745 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Courses & Colleges | CMR Group of Institutions – Hyderabad</title>
   <link rel="icon" href="assets/images/favicon.ico" />
-  <meta name="description" content="Explore all courses and colleges under CMR Group including Engineering, Pharmacy, Medical Sciences, Management and Allied Sciences programs." />
+  <meta name="description"
+    content="Explore all courses and colleges under CMR Group including Engineering, Pharmacy, Medical Sciences, Management and Allied Sciences programs." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    .college-section { padding: 80px 0; }
-    .college-section:nth-child(even) { background: var(--bg-soft); }
-    .college-section:nth-child(odd) { background: #fff; }
-    .college-detail-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:64px; align-items:start; }
-    .college-detail-grid.reverse { grid-template-columns:1.2fr 1fr; }
-    .college-detail-grid.reverse .college-visual { order:2; }
-    .college-detail-grid.reverse .college-detail-content { order:1; }
-    .college-visual { position:relative; }
+    .college-section {
+      padding: 80px 0;
+    }
+
+    .college-section:nth-child(even) {
+      background: var(--bg-soft);
+    }
+
+    .college-section:nth-child(odd) {
+      background: #fff;
+    }
+
+    .college-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .college-detail-grid.reverse {
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .college-detail-grid.reverse .college-visual {
+      order: 2;
+    }
+
+    .college-detail-grid.reverse .college-detail-content {
+      order: 1;
+    }
+
+    .college-visual {
+      position: relative;
+    }
+
     .college-hero-card {
-      border-radius:var(--radius-lg); padding:48px 36px; position:relative; overflow:hidden;
-      display:flex; flex-direction:column; justify-content:flex-end; min-height:320px;
+      border-radius: var(--radius-lg);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 320px;
     }
-    .college-hero-card.eng1 { background:linear-gradient(135deg,#0a1628 0%,#1a4db3 100%); }
-    .college-hero-card.eng2 { background:linear-gradient(135deg,#1a3060 0%,#2563eb 100%); }
-    .college-hero-card.pharm { background:linear-gradient(135deg,#064e3b 0%,#059669 100%); }
-    .college-hero-card.tech { background:linear-gradient(135deg,#0f2a5e 0%,#1e40af 100%); }
-    .college-hero-card.eng3 { background:linear-gradient(135deg,#0c1f42 0%,#1e3a8a 100%); }
-    .college-hero-card.med { background:linear-gradient(135deg,#7c2d12 0%,#dc2626 100%); }
+
+    .college-hero-card.eng1 {
+      background: linear-gradient(135deg, #0a1628 0%, #1a4db3 100%);
+    }
+
+    .college-hero-card.eng2 {
+      background: linear-gradient(135deg, #1a3060 0%, #2563eb 100%);
+    }
+
+    .college-hero-card.pharm {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+    }
+
+    .college-hero-card.tech {
+      background: linear-gradient(135deg, #0f2a5e 0%, #1e40af 100%);
+    }
+
+    .college-hero-card.eng3 {
+      background: linear-gradient(135deg, #0c1f42 0%, #1e3a8a 100%);
+    }
+
+    .college-hero-card.med {
+      background: linear-gradient(135deg, #7c2d12 0%, #dc2626 100%);
+    }
+
     .college-hero-card::before {
-      content:''; position:absolute; top:-30px; right:-30px; width:200px; height:200px;
-      border-radius:50%; background:rgba(255,255,255,.06);
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .06);
     }
-    .college-hero-abbr { font-size:72px; font-weight:900; color:rgba(255,255,255,.1); position:absolute; top:16px; right:24px; line-height:1; }
-    .college-hero-title { font-size:22px; font-weight:800; color:#fff; margin-bottom:8px; position:relative; }
-    .college-hero-sub { font-size:13px; color:rgba(255,255,255,.65); position:relative; }
-    .courses-table { background:#fff; border-radius:var(--radius-md); border:1px solid var(--border); overflow:hidden; margin-top:24px; }
-    .courses-table table { width:100%; border-collapse:collapse; }
-    .courses-table th { background:var(--navy); color:#fff; padding:14px 20px; font-size:13px; font-weight:700; text-align:left; }
-    .courses-table td { padding:12px 20px; font-size:13.5px; border-bottom:1px solid var(--border); color:var(--text-main); }
-    .courses-table tr:last-child td { border-bottom:none; }
-    .courses-table tr:hover td { background:var(--bg-soft); }
-    .intake-badge { display:inline-block; background:rgba(26,77,179,.1); color:var(--blue); border-radius:6px; padding:3px 10px; font-size:12px; font-weight:700; }
-    .college-detail-content .section-label { margin-bottom:12px; }
-    @media(max-width:1024px){
-      .college-detail-grid,.college-detail-grid.reverse{ grid-template-columns:1fr; }
-      .college-detail-grid.reverse .college-visual,.college-detail-grid.reverse .college-detail-content{ order:unset; }
+
+    .college-hero-abbr {
+      font-size: 72px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, .1);
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      line-height: 1;
+    }
+
+    .college-hero-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .college-hero-sub {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .65);
+      position: relative;
+    }
+
+    .courses-table {
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-top: 24px;
+    }
+
+    .courses-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .courses-table th {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .courses-table td {
+      padding: 12px 20px;
+      font-size: 13.5px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .courses-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .courses-table tr:hover td {
+      background: var(--bg-soft);
+    }
+
+    .intake-badge {
+      display: inline-block;
+      background: rgba(26, 77, 179, .1);
+      color: var(--blue);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .college-detail-content .section-label {
+      margin-bottom: 12px;
+    }
+
+    @media(max-width:1024px) {
+
+      .college-detail-grid,
+      .college-detail-grid.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .college-detail-grid.reverse .college-visual,
+      .college-detail-grid.reverse .college-detail-content {
+        order: unset;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header id="header" role="banner">
-  <nav class="nav-container" aria-label="Main navigation">
-    <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
-      <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
-    </a>
-    <ul class="nav-links" role="list">
-      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-      <li class="nav-item">
-        <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
-        <div class="dropdown">
-          <a href="about.html#about-cmrgi">About CMRGI</a>
-          <a href="management.html">Management</a>
-          <a href="about.html#leadership">Principals &amp; Directors</a>
-          <a href="student-activities.html">Student Activities</a>
-          <a href="about.html#excellence">Center of Excellence</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
-        <div class="dropdown">
-          <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
-          <a href="courses.html#cmrit">CMR Institute of Technology</a>
-          <a href="courses.html#cmrec">CMR Engineering College</a>
-          <a href="courses.html#cmrtc">CMR Technical Campus</a>
-          <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
-          <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
-        <div class="dropdown">
-          <a href="admissions.html#procedure">Admission Procedure</a>
-          <a href="admissions.html#courses">Courses &amp; Intake</a>
-          <a href="admissions.html#fees">Fee Structure</a>
-          <a href="admissions.html#enquiry">Enquiry Form</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
-        <div class="dropdown">
-          <a href="placements.html#about-pc">About Placement Office</a>
-          <a href="placements.html#rankings">Rankings &amp; Highlights</a>
-          <a href="placements.html#training">Pre-Placement Training</a>
-          <a href="placements.html#companies">Top Companies</a>
-          <a href="placements.html#placed">Placement Records</a>
-          <a href="placements.html#graph">Placement Graph</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
-        <div class="dropdown">
-          <a href="infrastructure.html">Infrastructure Overview</a>
-          <a href="hostel.html">Hostel</a>
-          <a href="transport.html">Transport Facility</a>
-          <a href="other-facilities.html">Other Facilities</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
-        <div class="dropdown">
-          <a href="research.html">Research &amp; Development</a>
-          <a href="achievements.html">Achievements</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="alumni.html">Alumni</a>
-          <a href="contact.html">Contact Us</a>
-        </div>
-      </li>
-    </ul>
-    <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
-
-<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
-  <p class="m-section-title">Navigation</p>
-  <a href="index.html">Home</a>
-  <a href="about.html">About CMRGI</a>
-  <a href="management.html">Management</a>
-  <a href="student-activities.html">Student Activities</a>
-  <p class="m-section-title">Our Colleges</p>
-  <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
-  <a href="courses.html#cmrit">CMR Institute of Technology</a>
-  <a href="courses.html#cmrec">CMR Engineering College</a>
-  <a href="courses.html#cmrtc">CMR Technical Campus</a>
-  <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
-  <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
-  <p class="m-section-title">Admissions</p>
-  <a href="admissions.html#procedure">Admission Procedure</a>
-  <a href="admissions.html#courses">Courses &amp; Intake</a>
-  <a href="admissions.html#fees">Fee Structure</a>
-  <p class="m-section-title">Placements</p>
-  <a href="placements.html">Placement Cell</a>
-  <a href="placements.html#companies">Top Companies</a>
-  <a href="placements.html#placed">Placement Records</a>
-  <p class="m-section-title">Infrastructure</p>
-  <a href="infrastructure.html">Infrastructure Overview</a>
-  <a href="hostel.html">Hostel</a>
-  <a href="transport.html">Transport Facility</a>
-  <a href="other-facilities.html">Other Facilities</a>
-  <p class="m-section-title">More Pages</p>
-  <a href="research.html">Research &amp; Development</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="alumni.html">Alumni</a>
-  <a href="contact.html">Contact Us</a>
-  <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
-</nav>
-
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <p class="page-hero-label">Academic Programs</p>
-  <h1 class="page-hero-title">Our Colleges &amp; Courses</h1>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span>›</span>
-    <span style="color:#fff;">Colleges</span>
-  </nav>
-</section>
-
-<!-- CMRCET -->
-<section id="cmrcet" class="college-section">
-  <div class="container">
-    <div class="college-detail-grid">
-      <div class="college-visual fade-left">
-        <div class="college-hero-card eng1">
-          <div class="college-hero-abbr">CMRCET</div>
-          <div class="college-hero-title">CMR College of Engineering &amp; Technology</div>
-          <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
-          <span class="cbadge ugc" style="font-size:12px;padding:5px 12px;">UGC Autonomous</span>
-          <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">NAAC Accredited</span>
-          <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
-          <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 201-250</span>
-          <span class="cbadge aicte" style="font-size:12px;padding:5px 12px;">AICTE Approved</span>
-        </div>
-      </div>
-      <div class="college-detail-content fade-right">
-        <p class="section-label">EAMCET Code: CMRK</p>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR College of <span>Engineering &amp; Technology</span></h2>
-        <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
-          CMRCET is the flagship institution of CMR Group, offering a broad spectrum of UG and PG engineering programs. With UGC Autonomous status and strong industry partnerships, it is rated AAAA by Careers360 and ranked 2nd among Private Engineering Colleges in Telangana by Times of India.
-        </p>
-        <div class="courses-table">
-          <table>
-            <thead><tr><th>Program</th><th>Duration</th><th>Intake</th></tr></thead>
-            <tbody>
-              <tr><td>B.Tech – CSE, IT, ECE, EEE, MECH, CIVIL, AI&ML, DS</td><td>4 Years</td><td><span class="intake-badge">720</span></td></tr>
-              <tr><td>M.Tech – All Specializations</td><td>2 Years</td><td><span class="intake-badge">Multiple</span></td></tr>
-              <tr><td>MBA – Business Administration</td><td>2 Years</td><td><span class="intake-badge">120</span></td></tr>
-              <tr><td>MCA – Computer Applications</td><td>2 Years</td><td><span class="intake-badge">60</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div style="margin-top:20px;"><a href="http://cmrcet.ac.in/" target="_blank" rel="noopener" class="btn-blue">Visit College Website →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CMRIT -->
-<section id="cmrit" class="college-section">
-  <div class="container">
-    <div class="college-detail-grid reverse">
-      <div class="college-detail-content fade-left">
-        <p class="section-label">EAMCET Code: CMRM</p>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR Institute of <span>Technology</span></h2>
-        <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
-          CMRIT is a premier autonomous technology institute offering high-quality engineering education with a strong focus on research, innovation, and industry collaboration. Consistently ranked in the NIRF 201-250 band with NBA and NAAC accreditations.
-        </p>
-        <div class="courses-table">
-          <table>
-            <thead><tr><th>Program</th><th>Duration</th><th>Intake</th></tr></thead>
-            <tbody>
-              <tr><td>B.Tech – CSE, IT, ECE, EEE, MECH, AI&ML, DS, CSD</td><td>4 Years</td><td><span class="intake-badge">720</span></td></tr>
-              <tr><td>M.Tech – VLSI, CSE, SE, ES</td><td>2 Years</td><td><span class="intake-badge">Multiple</span></td></tr>
-              <tr><td>MBA – Business Administration</td><td>2 Years</td><td><span class="intake-badge">60</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div style="margin-top:20px;"><a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener" class="btn-blue">Visit College Website →</a></div>
-      </div>
-      <div class="college-visual fade-right">
-        <div class="college-hero-card eng2">
-          <div class="college-hero-abbr">CMRIT</div>
-          <div class="college-hero-title">CMR Institute of Technology</div>
-          <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
-          <span class="cbadge ugc" style="font-size:12px;padding:5px 12px;">UGC Autonomous</span>
-          <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">NAAC Accredited</span>
-          <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
-          <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 201-250</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CMRCP -->
-<section id="cmrcp" class="college-section">
-  <div class="container">
-    <div class="college-detail-grid">
-      <div class="college-visual fade-left">
-        <div class="college-hero-card pharm">
-          <div class="college-hero-abbr">CMRCP</div>
-          <div class="college-hero-title">CMR College of Pharmacy</div>
-          <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
-          <span class="cbadge pci" style="font-size:12px;padding:5px 12px;">PCI Approved</span>
-          <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
-          <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF Rank 72</span>
-        </div>
-      </div>
-      <div class="college-detail-content fade-right">
-        <p class="section-label">EAMCET Code: CMRP</p>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR College of <span>Pharmacy</span></h2>
-        <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
-          Ranked #72 among All India Pharmacy Colleges by NIRF, this PCI-approved institution is permanently affiliated to JNTUH. It is renowned for producing top pharmaceutical professionals and researchers.
-        </p>
-        <div class="courses-table">
-          <table>
-            <thead><tr><th>Program</th><th>Duration</th><th>Intake</th></tr></thead>
-            <tbody>
-              <tr><td>B.Pharmacy</td><td>4 Years</td><td><span class="intake-badge">100</span></td></tr>
-              <tr><td>M.Pharmacy (Pharmaceutics, Pharm. Analysis, Pharm. Chemistry)</td><td>2 Years</td><td><span class="intake-badge">Multiple</span></td></tr>
-              <tr><td>Pharm.D</td><td>6 Years</td><td><span class="intake-badge">30</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div style="margin-top:20px;"><a href="http://cmrcp.ac.in/" target="_blank" rel="noopener" class="btn-blue">Visit College Website →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CMRTC -->
-<section id="cmrtc" class="college-section">
-  <div class="container">
-    <div class="college-detail-grid reverse">
-      <div class="college-detail-content fade-left">
-        <p class="section-label">EAMCET Code: CMRG</p>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR <span>Technical Campus</span></h2>
-        <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
-          CMRTC is a UGC Autonomous institution with NAAC and NBA accreditations. Ranked in the NIRF 201-250 band, it offers comprehensive engineering and management programs with excellent placement support.
-        </p>
-        <div class="courses-table">
-          <table>
-            <thead><tr><th>Program</th><th>Duration</th><th>Intake</th></tr></thead>
-            <tbody>
-              <tr><td>B.Tech – CSE, IT, ECE, EEE, MECH, AI&ML</td><td>4 Years</td><td><span class="intake-badge">540</span></td></tr>
-              <tr><td>M.Tech – Specializations</td><td>2 Years</td><td><span class="intake-badge">Multiple</span></td></tr>
-              <tr><td>MBA</td><td>2 Years</td><td><span class="intake-badge">60</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div style="margin-top:20px;"><a href="http://cmrtc.ac.in/" target="_blank" rel="noopener" class="btn-blue">Visit College Website →</a></div>
-      </div>
-      <div class="college-visual fade-right">
-        <div class="college-hero-card tech">
-          <div class="college-hero-abbr">CMRTC</div>
-          <div class="college-hero-title">CMR Technical Campus</div>
-          <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
-          <span class="cbadge ugc" style="font-size:12px;padding:5px 12px;">UGC Autonomous</span>
-          <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">NAAC Accredited</span>
-          <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
-          <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 201-250</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CMREC -->
-<section id="cmrec" class="college-section">
-  <div class="container">
-    <div class="college-detail-grid">
-      <div class="college-visual fade-left">
-        <div class="college-hero-card eng3">
-          <div class="college-hero-abbr">CMREC</div>
-          <div class="college-hero-title">CMR Engineering College</div>
-          <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
-          <span class="cbadge ugc" style="font-size:12px;padding:5px 12px;">UGC Autonomous</span>
-          <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">NAAC Accredited</span>
-          <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
-          <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 251-300</span>
-        </div>
-      </div>
-      <div class="college-detail-content fade-right">
-        <p class="section-label">EAMCET Code: CMRN</p>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR <span>Engineering College</span></h2>
-        <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
-          CMREC is an autonomous engineering college with AICTE approval, NAAC and NBA accreditations. Ranked in the NIRF 251-300 band, it provides industry-aligned engineering education with strong placement outcomes.
-        </p>
-        <div class="courses-table">
-          <table>
-            <thead><tr><th>Program</th><th>Duration</th><th>Intake</th></tr></thead>
-            <tbody>
-              <tr><td>B.Tech – CSE, IT, ECE, EEE, MECH, AI&ML, DS</td><td>4 Years</td><td><span class="intake-badge">540</span></td></tr>
-              <tr><td>M.Tech – Specializations</td><td>2 Years</td><td><span class="intake-badge">Multiple</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div style="margin-top:20px;"><a href="http://cmrec.ac.in/" target="_blank" rel="noopener" class="btn-blue">Visit College Website →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CMRIMS -->
-<section id="cmrims" class="college-section">
-  <div class="container">
-    <div class="college-detail-grid reverse">
-      <div class="college-detail-content fade-left">
-        <p class="section-label">Affiliated: KNRUHS</p>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR Institute of <span>Medical Sciences</span></h2>
-        <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
-          NMC approved and affiliated to KNRUHS (Kaloji Narayana Rao University of Health Sciences), CMRIMS offers world-class medical education with modern clinical training facilities.
-        </p>
-        <div class="courses-table">
-          <table>
-            <thead><tr><th>Program</th><th>Duration</th><th>Intake</th></tr></thead>
-            <tbody>
-              <tr><td>MBBS</td><td>5.5 Years</td><td><span class="intake-badge">150</span></td></tr>
-              <tr><td>Allied Health Sciences Programs</td><td>3-4 Years</td><td><span class="intake-badge">Multiple</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div style="margin-top:20px;"><a href="https://cmrims.co.in/" target="_blank" rel="noopener" class="btn-blue">Visit College Website →</a></div>
-      </div>
-      <div class="college-visual fade-right">
-        <div class="college-hero-card med">
-          <div class="college-hero-abbr">CMRIMS</div>
-          <div class="college-hero-title">CMR Institute of Medical Sciences</div>
-          <div class="college-hero-sub">Hyderabad, Telangana</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
-          <span class="cbadge nmc" style="font-size:12px;padding:5px 12px;">NMC Approved</span>
-          <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">KNRUHS Affiliated</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="footer" role="contentinfo">
-  <div class="footer-top">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
-          <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
-          <div class="footer-socials">
-            <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
-            <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">in</a>
-            <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">ig</a>
-            <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">yt</a>
-            <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">X</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer-col-title">Our Colleges</h4>
-          <div class="footer-links">
-            <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
-            <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of Technology</a>
-            <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
-            <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
-            <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
-            <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer-col-title">Quick Links</h4>
-          <div class="footer-links">
-            <a href="about.html">About CMRGI</a>
+  <!-- HEADER -->
+  <header id="header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="CMR Group Home">
+        <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About Us <span class="chevron">&#9662;</span></a>
+          <div class="dropdown">
+            <a href="about.html#about-cmrgi">About CMRGI</a>
             <a href="management.html">Management</a>
-            <a href="admissions.html">Admissions 2025-26</a>
+            <a href="about.html#leadership">Principals &amp; Directors</a>
+            <a href="student-activities.html">Student Activities</a>
+            <a href="about.html#excellence">Center of Excellence</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="courses.html" class="nav-link">Colleges <span class="chevron">&#9662;</span></a>
+          <div class="dropdown">
+            <a href="courses.html#cmrcet">CMR College of Engineering &amp; Tech</a>
+            <a href="courses.html#cmrit">CMR Institute of Technology</a>
+            <a href="courses.html#cmrec">CMR Engineering College</a>
+            <a href="courses.html#cmrtc">CMR Technical Campus</a>
+            <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+            <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="admissions.html" class="nav-link">Admissions <span class="chevron">&#9662;</span></a>
+          <div class="dropdown">
+            <a href="admissions.html#procedure">Admission Procedure</a>
+            <a href="admissions.html#courses">Courses &amp; Intake</a>
             <a href="admissions.html#fees">Fee Structure</a>
-            <a href="placements.html">Placement Cell</a>
-            <a href="infrastructure.html">Infrastructure</a>
+            <a href="admissions.html#enquiry">Enquiry Form</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="placements.html" class="nav-link">Placements <span class="chevron">&#9662;</span></a>
+          <div class="dropdown">
+            <a href="placements.html#about-pc">About Placement Office</a>
+            <a href="placements.html#rankings">Rankings &amp; Highlights</a>
+            <a href="placements.html#training">Pre-Placement Training</a>
+            <a href="placements.html#companies">Top Companies</a>
+            <a href="placements.html#placed">Placement Records</a>
+            <a href="placements.html#graph">Placement Graph</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="infrastructure.html" class="nav-link">Infrastructure <span class="chevron">&#9662;</span></a>
+          <div class="dropdown">
+            <a href="infrastructure.html">Infrastructure Overview</a>
+            <a href="hostel.html">Hostel</a>
+            <a href="transport.html">Transport Facility</a>
+            <a href="other-facilities.html">Other Facilities</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">More <span class="chevron">&#9662;</span></a>
+          <div class="dropdown">
             <a href="research.html">Research &amp; Development</a>
             <a href="achievements.html">Achievements</a>
             <a href="gallery.html">Gallery</a>
             <a href="alumni.html">Alumni</a>
-            <a href="student-activities.html">Student Activities</a>
             <a href="contact.html">Contact Us</a>
           </div>
+        </li>
+      </ul>
+      <a href="admissions.html#enquiry" class="nav-cta nav-link" id="nav-enquiry-btn">Apply Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <p class="m-section-title">Navigation</p>
+    <a href="index.html">Home</a>
+    <a href="about.html">About CMRGI</a>
+    <a href="management.html">Management</a>
+    <a href="student-activities.html">Student Activities</a>
+    <p class="m-section-title">Our Colleges</p>
+    <a href="courses.html#cmrcet">CMR College of Engineering &amp; Technology</a>
+    <a href="courses.html#cmrit">CMR Institute of Technology</a>
+    <a href="courses.html#cmrec">CMR Engineering College</a>
+    <a href="courses.html#cmrtc">CMR Technical Campus</a>
+    <a href="courses.html#cmrims">CMR Institute of Medical Sciences</a>
+    <a href="courses.html#cmrcp">CMR College of Pharmacy</a>
+    <p class="m-section-title">Admissions</p>
+    <a href="admissions.html#procedure">Admission Procedure</a>
+    <a href="admissions.html#courses">Courses &amp; Intake</a>
+    <a href="admissions.html#fees">Fee Structure</a>
+    <p class="m-section-title">Placements</p>
+    <a href="placements.html">Placement Cell</a>
+    <a href="placements.html#companies">Top Companies</a>
+    <a href="placements.html#placed">Placement Records</a>
+    <p class="m-section-title">Infrastructure</p>
+    <a href="infrastructure.html">Infrastructure Overview</a>
+    <a href="hostel.html">Hostel</a>
+    <a href="transport.html">Transport Facility</a>
+    <a href="other-facilities.html">Other Facilities</a>
+    <p class="m-section-title">More Pages</p>
+    <a href="research.html">Research &amp; Development</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="alumni.html">Alumni</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;">Apply Now 2025-26</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <p class="page-hero-label">Academic Programs</p>
+    <h1 class="page-hero-title">Our Colleges &amp; Courses</h1>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span style="color:#fff;">Colleges</span>
+    </nav>
+  </section>
+
+  <!-- CMRCET -->
+  <section id="cmrcet" class="college-section">
+    <div class="container">
+      <div class="college-detail-grid">
+        <div class="college-visual fade-left">
+          <div class="college-hero-card eng1">
+            <div class="college-hero-abbr">CMRCET</div>
+            <div class="college-hero-title">CMR College of Engineering &amp; Technology</div>
+            <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <span class="cbadge ugc" style="font-size:12px;padding:5px 12px;">UGC Autonomous</span>
+            <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">NAAC Accredited</span>
+            <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
+            <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 201-250</span>
+            <span class="cbadge aicte" style="font-size:12px;padding:5px 12px;">AICTE Approved</span>
+          </div>
         </div>
-        <div>
-          <h4 class="footer-col-title">Contact Us</h4>
-          <div class="footer-links">
-            <a href="tel:+919100760559">+91 9100760559</a>
-            <a href="tel:+919100470559">+91 9100470559</a>
-            <a href="tel:+919247033441">+91 9247033441</a>
-            <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
-            <a href="admissions.html#enquiry" style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+        <div class="college-detail-content fade-right">
+          <p class="section-label">EAMCET Code: CMRK</p>
+          <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR College of <span>Engineering &amp;
+              Technology</span></h2>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
+            CMRCET is the flagship institution of CMR Group, offering a broad spectrum of UG and PG engineering
+            programs. With UGC Autonomous status and strong industry partnerships, it is recognized in the NIRF 2025
+            Band 201-300 for Engineering and ranked 2nd among Private Engineering Colleges in Telangana by Times of
+            India.
+          </p>
+          <div class="courses-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Program</th>
+                  <th>Duration</th>
+                  <th>Intake</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>B.Tech – CSE, ECE, EEE, MECH, CIVIL, AI&ML, DS</td>
+                  <td>4 Years</td>
+                  <td><span class="intake-badge">1500</span></td>
+                </tr>
+                <tr>
+                  <td>M.Tech – All Specializations</td>
+                  <td>2 Years</td>
+                  <td><span class="intake-badge">Multiple</span></td>
+                </tr>
+                <tr>
+                  <td>MBA – Business Administration</td>
+                  <td>2 Years</td>
+                  <td><span class="intake-badge">240</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:20px;"><a href="http://cmrcet.ac.in/" target="_blank" rel="noopener"
+              class="btn-blue">Visit College Website →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMRIT -->
+  <section id="cmrit" class="college-section">
+    <div class="container">
+      <div class="college-detail-grid reverse">
+        <div class="college-detail-content fade-left">
+          <p class="section-label">EAMCET Code: CMRM</p>
+          <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR Institute of <span>Technology</span>
+          </h2>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
+            CMRIT is a premier autonomous technology institute offering high-quality engineering education with a strong
+            focus on research, innovation, and industry collaboration. Consistently ranked in the NIRF 201-250 band with
+            NBA and NAAC accreditations.
+          </p>
+          <div class="courses-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Program</th>
+                  <th>Duration</th>
+                  <th>Intake</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>B.Tech – CSE, ECE, CSM, CSD</td>
+                  <td>4 Years</td>
+                  <td><span class="intake-badge">1200</span></td>
+                </tr>
+                <tr>
+                  <td>M.Tech – VLSI, CSE</td>
+                  <td>2 Years</td>
+                  <td><span class="intake-badge">Multiple</span></td>
+                </tr>
+                <tr>
+                  <td>MBA – Business Administration</td>
+                  <td>2 Years</td>
+                  <td><span class="intake-badge">120</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:20px;"><a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener"
+              class="btn-blue">Visit College Website →</a></div>
+        </div>
+        <div class="college-visual fade-right">
+          <div class="college-hero-card eng2">
+            <div class="college-hero-abbr">CMRIT</div>
+            <div class="college-hero-title">CMR Institute of Technology</div>
+            <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <span class="cbadge ugc" style="font-size:12px;padding:5px 12px;">UGC Autonomous</span>
+            <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">NAAC Accredited</span>
+            <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
+            <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 201-250</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-inner">
-      <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Disclaimer</a>
-        <a href="contact.html">Grievance Cell</a>
+  </section>
+
+
+  <!-- CMRTC -->
+  <section id="cmrtc" class="college-section">
+    <div class="container">
+      <div class="college-detail-grid reverse">
+        <div class="college-detail-content fade-left">
+          <p class="section-label">EAMCET Code: CMRG</p>
+          <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR <span>Technical Campus</span></h2>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
+            CMRTC is a UGC Autonomous institution with NAAC and NBA accreditations. Ranked in the NIRF 201-250 band, it
+            offers comprehensive engineering and management programs with excellent placement support.
+          </p>
+          <div class="courses-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Program</th>
+                  <th>Duration</th>
+                  <th>Intake</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>B.Tech – CSE ECE CSM CSD</td>
+                  <td>4 Years</td>
+                  <td><span class="intake-badge">1200</span></td>
+                </tr>
+                <tr>
+                  <td>M.Tech – Specializations</td>
+                  <td>2 Years</td>
+                  <td><span class="intake-badge">Multiple</span></td>
+                </tr>
+                <tr>
+                  <td>MBA</td>
+                  <td>2 Years</td>
+                  <td><span class="intake-badge">240</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:20px;"><a href="http://cmrtc.ac.in/" target="_blank" rel="noopener"
+              class="btn-blue">Visit College Website →</a></div>
+        </div>
+        <div class="college-visual fade-right">
+          <div class="college-hero-card tech">
+            <div class="college-hero-abbr">CMRTC</div>
+            <div class="college-hero-title">CMR Technical Campus</div>
+            <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <span class="cbadge ugc" style="font-size:12px;padding:5px 12px;">UGC Autonomous</span>
+            <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">NAAC Accredited</span>
+            <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
+            <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 201-250</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<button id="back-top" aria-label="Back to top">↑</button>
-<script src="assets/js/main.js"></script>
+  <!-- CMREC -->
+  <section id="cmrec" class="college-section">
+    <div class="container">
+      <div class="college-detail-grid">
+        <div class="college-visual fade-left">
+          <div class="college-hero-card eng3">
+            <div class="college-hero-abbr">CMREC</div>
+            <div class="college-hero-title">CMR Engineering College</div>
+            <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <span class="cbadge ugc" style="font-size:12px;padding:5px 12px;">UGC Autonomous</span>
+            <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">NAAC Accredited</span>
+            <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
+            <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 251-300</span>
+          </div>
+        </div>
+        <div class="college-detail-content fade-right">
+          <p class="section-label">EAMCET Code: CMRN</p>
+          <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR <span>Engineering College</span></h2>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
+            CMREC is an autonomous engineering college with AICTE approval, NAAC and NBA accreditations. Ranked in the
+            NIRF 251-300 band, it provides industry-aligned engineering education with strong placement outcomes.
+          </p>
+          <div class="courses-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Program</th>
+                  <th>Duration</th>
+                  <th>Intake</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>B.Tech – CSE, ECE, CSM, CSD</td>
+                  <td>4 Years</td>
+                  <td><span class="intake-badge">1200</span></td>
+                </tr>
+                <tr>
+                  <td>M.Tech – Specializations</td>
+                  <td>2 Years</td>
+                  <td><span class="intake-badge">Multiple</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:20px;"><a href="http://cmrec.ac.in/" target="_blank" rel="noopener"
+              class="btn-blue">Visit College Website →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMRIMS -->
+  <section id="cmrims" class="college-section">
+    <div class="container">
+      <div class="college-detail-grid reverse">
+        <div class="college-detail-content fade-left">
+          <p class="section-label">Affiliated: KNRUHS</p>
+          <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR Institute of <span>Medical
+              Sciences</span></h2>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
+            NMC approved and affiliated to KNRUHS (Kaloji Narayana Rao University of Health Sciences), CMRIMS offers
+            world-class medical education with modern clinical training facilities.
+          </p>
+          <div class="courses-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Program</th>
+                  <th>Duration</th>
+                  <th>Intake</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MBBS</td>
+                  <td>5.5 Years</td>
+                  <td><span class="intake-badge">250</span></td>
+                </tr>
+                <tr>
+                  <td>Allied Health Sciences Programs</td>
+                  <td>3-4 Years</td>
+                  <td><span class="intake-badge">Multiple</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:20px;"><a href="https://cmrims.co.in/" target="_blank" rel="noopener"
+              class="btn-blue">Visit College Website →</a></div>
+        </div>
+        <div class="college-visual fade-right">
+          <div class="college-hero-card med">
+            <div class="college-hero-abbr">CMRIMS</div>
+            <div class="college-hero-title">CMR Institute of Medical Sciences</div>
+            <div class="college-hero-sub">Hyderabad, Telangana</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <span class="cbadge nmc" style="font-size:12px;padding:5px 12px;">NMC Approved</span>
+            <span class="cbadge naac" style="font-size:12px;padding:5px 12px;">KNRUHS Affiliated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMRCP -->
+  <section id="cmrcp" class="college-section">
+    <div class="container">
+      <div class="college-detail-grid">
+        <div class="college-visual fade-left">
+          <div class="college-hero-card pharm">
+            <div class="college-hero-abbr">CMRCP</div>
+            <div class="college-hero-title">CMR College of Pharmacy</div>
+            <div class="college-hero-sub">Kandlakoya, Medchal Road, Hyderabad</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <span class="cbadge pci" style="font-size:12px;padding:5px 12px;">PCI Approved</span>
+            <span class="cbadge nba" style="font-size:12px;padding:5px 12px;">NBA Accredited</span>
+            <span class="cbadge nirf" style="font-size:12px;padding:5px 12px;">NIRF 2025 Band 101-125</span>
+          </div>
+        </div>
+        <div class="college-detail-content fade-right">
+          <p class="section-label">EAMCET Code: CMRP</p>
+          <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">CMR College of <span>Pharmacy</span></h2>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;">
+            Recognized in the Rank Band 101-125 among All India Pharmacy Colleges by NIRF 2025, this PCI-approved
+            institution is permanently affiliated to JNTUH. It is renowned for producing top pharmaceutical
+            professionals and researchers.
+          </p>
+          <div class="courses-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Program</th>
+                  <th>Duration</th>
+                  <th>Intake</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>B.Pharmacy</td>
+                  <td>4 Years</td>
+                  <td><span class="intake-badge">100</span></td>
+                </tr>
+                <tr>
+                  <td>M.Pharmacy (Pharmaceutics, Pharm. Analysis, Pharm. Chemistry)</td>
+                  <td>2 Years</td>
+                  <td><span class="intake-badge">Multiple</span></td>
+                </tr>
+                <tr>
+                  <td>Pharm.D</td>
+                  <td>6 Years</td>
+                  <td><span class="intake-badge">30</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:20px;"><a href="http://cmrcp.ac.in/" target="_blank" rel="noopener"
+              class="btn-blue">Visit College Website →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <img src="assets/images/logo.png" alt="CMR Group of Institutions" class="footer-logo-img" />
+            <p class="footer-desc">Dedicated to imparting quality education and promoting excellence in academic
+              pursuits in Engineering, Pharmacy, Management, and Medical Sciences.</p>
+            <div class="footer-socials">
+              <a href="https://www.facebook.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn"
+                aria-label="Facebook">f</a>
+              <a href="https://www.linkedin.com/company/cmr-institutions" target="_blank" rel="noopener"
+                class="social-btn" aria-label="LinkedIn">in</a>
+              <a href="https://www.instagram.com/cmrinstitutions/" target="_blank" rel="noopener" class="social-btn"
+                aria-label="Instagram">ig</a>
+              <a href="https://www.youtube.com/channel/UCLivp9Q2t7KA3GIl-pENp6As" target="_blank" rel="noopener"
+                class="social-btn" aria-label="YouTube">yt</a>
+              <a href="https://twitter.com/cmrinstitutions" target="_blank" rel="noopener" class="social-btn"
+                aria-label="Twitter">X</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-col-title">Our Colleges</h4>
+            <div class="footer-links">
+              <a href="http://cmrcet.ac.in/" target="_blank" rel="noopener">CMRCET &ndash; Engineering &amp; Tech</a>
+              <a href="https://cmrithyderabad.edu.in/" target="_blank" rel="noopener">CMRIT &ndash; Institute of
+                Technology</a>
+              <a href="http://cmrtc.ac.in/" target="_blank" rel="noopener">CMRTC &ndash; Technical Campus</a>
+              <a href="http://cmrec.ac.in/" target="_blank" rel="noopener">CMREC &ndash; Engineering College</a>
+              <a href="https://cmrims.co.in/" target="_blank" rel="noopener">CMRIMS &ndash; Medical Sciences</a>
+              <a href="http://cmrcp.ac.in/" target="_blank" rel="noopener">CMRCP &ndash; College of Pharmacy</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-col-title">Quick Links</h4>
+            <div class="footer-links">
+              <a href="about.html">About CMRGI</a>
+              <a href="management.html">Management</a>
+              <a href="admissions.html">Admissions 2025-26</a>
+              <a href="admissions.html#fees">Fee Structure</a>
+              <a href="placements.html">Placement Cell</a>
+              <a href="infrastructure.html">Infrastructure</a>
+              <a href="research.html">Research &amp; Development</a>
+              <a href="achievements.html">Achievements</a>
+              <a href="gallery.html">Gallery</a>
+              <a href="alumni.html">Alumni</a>
+              <a href="student-activities.html">Student Activities</a>
+              <a href="contact.html">Contact Us</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-col-title">Contact Us</h4>
+            <div class="footer-links">
+              <a href="tel:+919248727210">+91 9248727210</a>
+              <a href="tel:+918008557612">+91 8008557612</a>
+              <a href="tel:+919100760559">+91 9100760559</a>
+              <a href="tel:+919248727229">+91 9248727229</a>
+              <a href="#">Kandlakoya(V), Medchal Road,<br>Hyderabad &ndash; 501401, Telangana</a>
+              <a href="admissions.html#enquiry"
+                style="color:var(--orange-light);font-weight:700;margin-top:8px;display:block;">Apply Now &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy"> 2025 CMR Group of Institutions. All rights reserved. | MGR Educational Society</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Disclaimer</a>
+          <a href="contact.html">Grievance Cell</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
